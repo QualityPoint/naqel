@@ -1,7 +1,7 @@
 app_name = "naqel"
 app_title = "Naqel"
 app_publisher = "QuailtyPoint"
-app_description = "Haywa — Complete Waste Management solution for agreements, contracts, collection and compliance on Frappe."
+app_description = "Naqel — Complete Waste Management solution for agreements, contracts, collection and compliance on Frappe."
 app_email = "erp@qp.sa"
 app_license = "gpl-3.0"
 # app_logo_url = "/assets/erpnext/images/logo.svg"

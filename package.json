@@ -1,0 +1,12 @@
+{
+  "name": "naqel",
+  "version": "1.0.0",
+  "description": "Naqel desk bundle dependencies",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "echarts": "^6.0.0",
+    "leaflet": "^1.9.4"
+  }
+}
