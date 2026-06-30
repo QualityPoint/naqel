@@ -1,0 +1,620 @@
+/* Waste Calculator Report Styles — Professional A4
+ * Accent:  #1a5c3a  (single dark-green; used only for borders / headers)
+ * Text:    #1a1a1a / #4b5563 / #6b7280
+ * BG:      #ffffff / #f9fafb
+ * Border:  #d1d5db / #e5e7eb
+ * No gradients. No multi-color schemes.
+ */
+
+/* Import Almarai Font */
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+/* ── Container ──────────────────────────────────────────── */
+.waste-report-container {
+    font-family: 'Almarai', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    padding: 0;
+    background: #ffffff;
+    max-width: 170mm;
+    /* A4 usable width (210 − 2×20 mm margins) */
+    margin: 0 auto;
+    font-size: 10pt;
+    color: #1a1a1a;
+    direction: rtl;
+    text-align: right;
+}
+
+/* ── Report Header ──────────────────────────────────────── */
+.report-header {
+    border-bottom: 2px solid #1a5c3a;
+    padding-bottom: 8pt;
+    margin-bottom: 12pt;
+    text-align: right;
+}
+
+.report-header h2 {
+    margin: 0 0 2pt;
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.report-header p {
+    margin: 0;
+    font-size: 9pt;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+/* ── Section titles & shared layout ────────────────────── */
+.section-title {
+    margin: 0 0 7pt;
+    padding: 0 0 4pt;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    font-weight: 700;
+    border-bottom: 1px solid #d1d5db;
+    text-align: right;
+}
+
+.section-description {
+    color: #4b5563;
+    font-size: 8.5pt;
+    margin: 0 0 5pt;
+    line-height: 1.4;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* ── Configuration Summary Section ─────────────────────── */
+.config-summary-section {
+    background: #f9fafb;
+    padding: 9pt 10pt;
+    border-radius: 4px;
+    margin-bottom: 10pt;
+    border-inline-end: 3px solid #1a5c3a;
+}
+
+.config-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    background: #ffffff;
+    direction: rtl;
+}
+
+.config-table tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.config-table tr:last-child {
+    border-bottom: none;
+}
+
+.config-table td {
+    padding: 4pt 7pt;
+    text-align: right;
+}
+
+.config-table td:first-child {
+    width: 35%;
+    font-weight: 600;
+    color: #374151;
+    background: #f9fafb;
+}
+
+.config-table td:last-child {
+    color: #1a1a1a;
+}
+
+.method-badge {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 1pt 6pt;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 8pt;
+    border: 1px solid #d1d5db;
+}
+
+/* ── Waste Distribution Section ─────────────────────────── */
+.waste-distribution-container,
+.selected-waste-container {
+    background: #f9fafb;
+    padding: 9pt 10pt;
+    border-radius: 4px;
+    margin-bottom: 10pt;
+    border-inline-end: 3px solid #1a5c3a;
+    border: 1px solid #e5e7eb;
+    border-inline-end: 3px solid #1a5c3a;
+}
+
+.waste-distribution-container .section-title {
+    margin: 0 0 5pt;
+    padding: 0 0 4pt;
+    font-size: 10pt;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.waste-distribution-table,
+.selected-waste-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    background: #ffffff;
+    direction: rtl;
+}
+
+.waste-distribution-table thead tr,
+.selected-waste-table thead tr {
+    background: #1a5c3a;
+    color: #ffffff;
+}
+
+.waste-distribution-table thead th,
+.selected-waste-table thead th {
+    padding: 5pt 7pt;
+    font-weight: 600;
+    border: 1px solid #1a5c3a;
+    text-align: right;
+}
+
+.waste-classification {
+    width: 12%;
+}
+
+.waste-distribution {
+    width: 12%;
+}
+
+.waste-volume {
+    width: 15%;
+}
+
+.waste-density {
+    width: 15%;
+}
+
+.waste-weight {
+    width: 15%;
+}
+
+.row-even,
+.row-even-alt {
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.row-odd,
+.row-odd-alt {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.waste-distribution-table td,
+.selected-waste-table td {
+    padding: 4pt 7pt;
+    border: 1px solid #e5e7eb;
+    text-align: right;
+    color: #1a1a1a;
+}
+
+.waste-name-cell .waste-name {
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1pt;
+}
+
+.waste-name-cell .waste-description {
+    color: #6b7280;
+    font-size: 7.5pt;
+    line-height: 1.3;
+    margin-top: 1pt;
+}
+
+.badge {
+    padding: 1pt 5pt;
+    border-radius: 3px;
+    font-size: 7.5pt;
+    font-weight: 600;
+    display: inline-block;
+    color: #ffffff;
+}
+
+.badge-group {
+    background: #6b7280;
+}
+
+.badge-specific {
+    background: #1a5c3a;
+}
+
+.distribution-value {
+    font-weight: 700;
+    color: #1a5c3a;
+    font-size: 9pt;
+}
+
+.volume-value {
+    font-weight: 600;
+    color: #1a5c3a;
+}
+
+.density-value {
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.weight-value {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* ── Calculation Breakdown Section ──────────────────────── */
+.calculation-section {
+    background: #f9fafb;
+    padding: 9pt 10pt;
+    border-radius: 4px;
+    margin-bottom: 10pt;
+    border: 1px solid #e5e7eb;
+    border-inline-end: 3px solid #1a5c3a;
+}
+
+.base-calculation-box {
+    background: #ffffff;
+    padding: 6pt 8pt;
+    border-radius: 3px;
+    border: 1px solid #e5e7eb;
+    border-inline-end: 2px solid #1a5c3a;
+    margin-bottom: 7pt;
+}
+
+.base-calculation-box h4 {
+    margin: 0 0 5pt;
+    color: #1a1a1a;
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-align: right;
+}
+
+.calculation-details {
+    font-size: 8.5pt;
+    color: #374151;
+    line-height: 1.45;
+    text-align: right;
+}
+
+.calculation-details p {
+    margin: 2pt 0;
+}
+
+.calculation-label {
+    color: #374151;
+    font-weight: 600;
+}
+
+.calculation-code {
+    background: #f3f4f6;
+    padding: 1pt 5pt;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    color: #1a1a1a;
+    border: 1px solid #d1d5db;
+    font-size: 8pt;
+}
+
+.calculation-result {
+    margin: 4pt 0 0;
+    padding: 4pt 6pt;
+    background: #f9fafb;
+    border-radius: 2px;
+    border: 1px solid #e5e7eb;
+}
+
+.result-value {
+    color: #1a5c3a;
+    font-size: 10pt;
+    margin-left: 6pt;
+    font-weight: 700;
+}
+
+/* ── Safety Factors Section ─────────────────────────────── */
+.safety-factors-box {
+    background: #ffffff;
+    padding: 7pt 8pt;
+    border-radius: 3px;
+    border: 1px solid #e5e7eb;
+    border-inline-end: 2px solid #9ca3af;
+    margin-bottom: 7pt;
+}
+
+.safety-factors-box h4 {
+    margin: 0 0 5pt;
+    color: #374151;
+    font-size: 9.5pt;
+    font-weight: 700;
+}
+
+.safety-factor-item {
+    padding: 3pt 6pt;
+    background: #f9fafb;
+    border-radius: 2px;
+    margin-bottom: 3pt;
+    border: 1px solid #e5e7eb;
+    text-align: right;
+}
+
+.safety-indicator {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #9ca3af;
+    border-radius: 50%;
+    margin-left: 5pt;
+}
+
+.safety-factor-label {
+    color: #374151;
+    font-weight: 600;
+}
+
+.safety-factor-value {
+    color: #1a1a1a;
+    margin-right: 5pt;
+    font-weight: 500;
+}
+
+.adjusted-calculation {
+    margin-top: 6pt;
+    padding: 6pt 8pt;
+    background: #f9fafb;
+    border-radius: 2px;
+    border: 1px solid #e5e7eb;
+}
+
+.adjusted-calculation h5 {
+    margin: 0 0 4pt;
+    color: #374151;
+    font-size: 9pt;
+    font-weight: 700;
+}
+
+.adjusted-calculation .calculation-code {
+    background: #f3f4f6;
+    color: #1a1a1a;
+}
+
+.adjusted-calculation .calculation-result {
+    background: #f3f4f6;
+}
+
+.adjusted-calculation .result-value {
+    color: #1a5c3a;
+}
+
+/* ── Total Waste Summary ─────────────────────────────────── */
+.total-waste-box {
+    background: #f9fafb;
+    padding: 10pt 12pt;
+    border-radius: 4px;
+    border: 2px solid #1a5c3a;
+    text-align: center;
+    page-break-inside: avoid;
+}
+
+.total-waste-box h4 {
+    margin: 0 0 4pt;
+    color: #374151;
+    font-size: 9pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+}
+
+.total-waste-value {
+    font-size: 20pt;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 3pt 0;
+}
+
+.total-waste-unit {
+    font-size: 10pt;
+    color: #6b7280;
+    font-weight: 500;
+    margin-right: 4pt;
+}
+
+/* ── Time-Based Projections Section ─────────────────────── */
+.time-projections-section {
+    background: #f9fafb;
+    padding: 9pt 10pt;
+    border: 1px solid #e5e7eb;
+    border-inline-end: 3px solid #1a5c3a;
+    margin-top: 10pt;
+    border-radius: 3px;
+    page-break-inside: avoid;
+}
+
+.time-projections-section .section-title {
+    font-size: 10pt;
+    margin: 0 0 5pt;
+    padding-bottom: 4pt;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.projections-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    background: #ffffff;
+    direction: rtl;
+}
+
+.projections-table thead tr {
+    background: #1a5c3a;
+    color: #ffffff;
+}
+
+.projections-table th {
+    padding: 5pt 7pt;
+    font-weight: 600;
+    border: 1px solid #1a5c3a;
+    text-align: right;
+}
+
+.projections-table .projection-factor {
+    width: 20%;
+}
+
+.projections-table .projection-volume {
+    width: 25%;
+}
+
+.projections-table .projection-weight {
+    width: 25%;
+}
+
+.projections-table td {
+    padding: 4pt 7pt;
+    border: 1px solid #e5e7eb;
+    text-align: right;
+    color: #1a1a1a;
+}
+
+.projections-table .time-period {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.projections-table .factor {
+    text-align: center;
+    color: #6b7280;
+}
+
+.projections-table .volume {
+    font-weight: 600;
+    color: #1a5c3a;
+}
+
+.projections-table .weight {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Alternating rows — neutral, no color coding */
+.projection-daily {
+    background: #f9fafb;
+}
+
+.projection-weekly {
+    background: #ffffff;
+}
+
+.projection-monthly {
+    background: #f9fafb;
+}
+
+.projection-yearly {
+    background: #ffffff;
+}
+
+/* Override any color on volume/weight cells inside row classes */
+.projection-daily .volume,
+.projection-weekly .volume,
+.projection-monthly .volume,
+.projection-yearly .volume {
+    color: #1a5c3a;
+}
+
+.projection-daily .weight,
+.projection-weekly .weight,
+.projection-monthly .weight,
+.projection-yearly .weight {
+    color: #1a1a1a;
+}
+
+.projections-note {
+    background: #f9fafb;
+    border-inline-end: 2px solid #9ca3af;
+    padding: 4pt 8pt;
+    margin-top: 5pt;
+    border-radius: 2px;
+    border: 1px solid #e5e7eb;
+}
+
+.projections-note p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 7.5pt;
+    line-height: 1.4;
+}
+
+/* ── Measurement Units Footer ────────────────────────────── */
+.units-footer {
+    background: #f9fafb;
+    padding: 6pt 10pt;
+    border-radius: 0 0 4px 4px;
+    border-top: 1px solid #d1d5db;
+    border: 1px solid #e5e7eb;
+    margin-top: 10pt;
+}
+
+.units-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    direction: rtl;
+}
+
+.units-table td {
+    padding: 0;
+    text-align: right;
+}
+
+.units-label {
+    color: #374151;
+    font-weight: 600;
+    width: 160px;
+}
+
+.units-values {
+    color: #374151;
+}
+
+.unit-item {
+    display: inline-block;
+    margin-left: 12pt;
+}
+
+.unit-type {
+    font-weight: 700;
+    color: #374151;
+}
+
+.unit-type.volume {
+    color: #374151;
+}
+
+.unit-type.mass {
+    color: #374151;
+}
+
+.unit-type.density {
+    color: #374151;
+}
+
+/* ── Utility classes ─────────────────────────────────────── */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}

@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-19 21:09:33.218349",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "from_uom",
+  "daily_generated_waste",
+  "calculate_daily_waste_generation_rate",
+  "calculate_threshold",
+  "calculate_safety_factor",
+  "column_break_wsnr",
+  "to_uom",
+  "whole_number",
+  "daily_waste_generation_rate",
+  "threshold",
+  "safety_factor"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "From UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wsnr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "To UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "to_uom.must_be_whole_number",
+   "fieldname": "whole_number",
+   "fieldtype": "Check",
+   "label": "Whole Number",
+   "read_only": 1
+  },
+  {
+   "description": "The daily waste generation rate per unit of the specified unit of measure",
+   "fieldname": "daily_waste_generation_rate",
+   "fieldtype": "Float",
+   "label": "Daily Waste Generation Rate",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "threshold",
+   "fieldtype": "Float",
+   "label": "Threshold",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "safety_factor",
+   "fieldtype": "Float",
+   "label": "Safety Factor",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "daily_generated_waste",
+   "fieldtype": "Float",
+   "label": "Daily Generated Waste",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "calculate_daily_waste_generation_rate",
+   "fieldtype": "Check",
+   "label": "Daily Waste Generation Rate"
+  },
+  {
+   "default": "0",
+   "fieldname": "calculate_threshold",
+   "fieldtype": "Check",
+   "label": "Threshold"
+  },
+  {
+   "default": "0",
+   "description": "Specify the parameter(s) that need to be calculated; values \u200b\u200bmust be given for the other unspecified parameter(s).",
+   "fieldname": "calculate_safety_factor",
+   "fieldtype": "Check",
+   "label": "Safety Factor"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-01-26 14:46:48.180766",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "UOM Conversion Calculator",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

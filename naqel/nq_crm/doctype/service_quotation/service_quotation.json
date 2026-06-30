@@ -1,0 +1,1182 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-20 10:11:34.927154",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_qhgs",
+  "naming_series",
+  "quotation_to",
+  "party_name",
+  "customer_name",
+  "column_break_jgld",
+  "transaction_date",
+  "valid_till",
+  "column_break_ijog",
+  "company",
+  "service_type",
+  "amended_from",
+  "duration_section",
+  "start_date",
+  "end_date",
+  "service_duration",
+  "column_break_mbmk",
+  "is_milestone_based",
+  "duration_uom",
+  "facility_section",
+  "facility",
+  "isic_classification",
+  "project_name",
+  "column_break_azin",
+  "territory",
+  "facility_address",
+  "license_section",
+  "license_type",
+  "license_status",
+  "license_no",
+  "column_break_bsba",
+  "license_document",
+  "license_display",
+  "facility_specifications_section",
+  "facility_uom",
+  "conversion_factor",
+  "facility_uoms",
+  "facility_measurement",
+  "default_uom",
+  "column_break_bbhf",
+  "must_be_whole_number",
+  "is_composite_uom",
+  "net_facility_measurement",
+  "notes_section",
+  "notes",
+  "service_pricing_tab",
+  "waste_calculation_section",
+  "service_configuration",
+  "column_break_ltvd",
+  "calculation_based_on",
+  "ignore_default_configuration",
+  "currency_and_service_pricing_section",
+  "currency",
+  "conversion_rate",
+  "column_break_vzlg",
+  "containers_section",
+  "calculate_service_price",
+  "column_break_qkrp",
+  "single_collection_mechanism",
+  "section_break_aqro",
+  "containers",
+  "section_break_bnye",
+  "total_container_count",
+  "total_volume",
+  "total_converted_volume",
+  "column_break_xyzh",
+  "base_total",
+  "base_net_total",
+  "column_break_uqom",
+  "total",
+  "net_total",
+  "additional_items_section",
+  "items",
+  "taxes_section",
+  "tax_category",
+  "sales_taxes_and_charges_template",
+  "column_break_szmq",
+  "section_break_aukj",
+  "taxes",
+  "section_break_xfag",
+  "base_total_taxes_and_charges",
+  "column_break_ezvy",
+  "total_taxes_and_charges",
+  "totals_section",
+  "column_break_bhxf",
+  "base_grand_total",
+  "base_rounding_adjustment",
+  "base_rounded_total",
+  "base_in_words",
+  "column_break_disc",
+  "grand_total",
+  "rounding_adjustment",
+  "rounded_total",
+  "disable_rounded_total",
+  "in_words",
+  "additional_discount_section",
+  "apply_discount_on",
+  "base_discount_amount",
+  "column_break_xrca",
+  "discount_mode",
+  "discount_amount",
+  "address_and_contact_tab",
+  "billing_address_section",
+  "customer_address",
+  "customer_address_display",
+  "column_break_qpog",
+  "contact_person",
+  "contact_display",
+  "contact_mobile",
+  "contact_email",
+  "company_address_section",
+  "company_address",
+  "company_address_display",
+  "column_break_kkrn",
+  "terms_tab",
+  "terms_section_break",
+  "tc_name",
+  "terms",
+  "more_info_tab",
+  "service_settings_section",
+  "grants_license",
+  "apply_regional_configuration",
+  "assigned_address_division_category",
+  "column_break_kymv",
+  "print_settings",
+  "letter_head",
+  "column_break_hewu",
+  "print_heading",
+  "language",
+  "additional_info_section",
+  "status",
+  "customer_group",
+  "column_break_axoy",
+  "service_request",
+  "connections_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_qhgs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "SRV-QTN-.YYYY.-",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Facility",
+   "options": "Facility",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jgld",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "no_copy": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "valid_till",
+   "fieldtype": "Date",
+   "label": "Valid Till"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nOpen\nAccepted\nRejected\nSales Order\nExpired\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ijog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "Service Type",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Service Quotation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_disc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "discount_amount",
+   "fieldtype": "Float",
+   "label": "Discount Amount",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "bold": 1,
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fetch_from": "facility.isic_classification",
+   "fieldname": "isic_classification",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "ISIC Classification",
+   "options": "ISIC Classification",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mbmk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:!doc.is_milestone_based",
+   "fieldname": "service_duration",
+   "fieldtype": "Float",
+   "label": "Service Duration",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "Month",
+   "depends_on": "eval:!doc.is_milestone_based",
+   "fieldname": "duration_uom",
+   "fieldtype": "Select",
+   "label": "Duration UOM",
+   "mandatory_depends_on": "eval:!doc.is_milestone_based",
+   "options": "\nDay\nMonth\nYear"
+  },
+  {
+   "fieldname": "terms_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "terms_section_break",
+   "fieldtype": "Section Break",
+   "label": "Terms and Conditions",
+   "options": "fa fa-legal"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Service Terms and Conditions",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Text Editor",
+   "label": "Term Details"
+  },
+  {
+   "fieldname": "column_break_bhxf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "additional_discount_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Discount"
+  },
+  {
+   "fieldname": "apply_discount_on",
+   "fieldtype": "Select",
+   "label": "Apply Additional Discount On",
+   "options": "\nService\nRemoval Mechanism\nAdditional Charges\nGrand Total"
+  },
+  {
+   "fieldname": "column_break_xrca",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration_section",
+   "fieldtype": "Section Break",
+   "label": "Service Duration"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "in_words",
+   "fieldtype": "Data",
+   "label": "In Words",
+   "length": 240,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "discount_mode",
+   "fieldtype": "Select",
+   "label": "Discount Mode",
+   "options": "\nPercentage\nAmount"
+  },
+  {
+   "depends_on": "eval:doc.grants_license",
+   "fieldname": "license_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "License Status",
+   "mandatory_depends_on": "eval:doc.grants_license",
+   "options": "\nNew Issue\nRenewal"
+  },
+  {
+   "depends_on": "eval:doc.license_status==\"Renewal\"",
+   "fieldname": "license_no",
+   "fieldtype": "Data",
+   "label": "License No",
+   "mandatory_depends_on": "eval:doc.license_status==\"Renewal\""
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "additional_items_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Items"
+  },
+  {
+   "fieldname": "more_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "More Info"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "print_settings",
+   "fieldtype": "Section Break",
+   "label": "Print Settings"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "letter_head",
+   "fieldtype": "Link",
+   "label": "Letter Head",
+   "options": "Letter Head",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_hewu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "print_heading",
+   "fieldtype": "Link",
+   "label": "Print Heading",
+   "options": "Print Heading",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Print Language",
+   "options": "Language",
+   "print_hide": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "additional_info_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Info"
+  },
+  {
+   "depends_on": "eval:(doc.quotation_to=='Customer' && doc.party_name)",
+   "fetch_from": "customer.customer_group",
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "label": "Customer Group",
+   "options": "Customer Group",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_axoy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_and_contact_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address & Contact"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Link",
+   "label": "Contact Person",
+   "options": "Contact",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "contact_display",
+   "fieldtype": "Small Text",
+   "in_global_search": 1,
+   "label": "Contact",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact_person.mobile_no",
+   "fieldname": "contact_mobile",
+   "fieldtype": "Data",
+   "label": "Mobile No",
+   "options": "Phone",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact_person.email_id",
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_address_section",
+   "fieldtype": "Section Break",
+   "label": "Company Address"
+  },
+  {
+   "fieldname": "company_address",
+   "fieldtype": "Link",
+   "label": "Company Address",
+   "options": "Address",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "company_address_display",
+   "fieldtype": "Text Editor",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kkrn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "containers",
+   "fieldtype": "Table",
+   "label": "Containers",
+   "options": "Service Quotation Container",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Service Quotation Item"
+  },
+  {
+   "fieldname": "section_break_bnye",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_container_count",
+   "fieldtype": "Int",
+   "label": "Total Container Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xyzh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_uqom",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "currency_and_service_pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Currency and Service Pricing"
+  },
+  {
+   "fieldname": "column_break_vzlg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "containers_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Containers"
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "service_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Service Settings"
+  },
+  {
+   "fieldname": "column_break_kymv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:!doc.disable_rounded_total",
+   "fieldname": "rounding_adjustment",
+   "fieldtype": "Currency",
+   "label": "Rounding Adjustment",
+   "no_copy": 1,
+   "options": "currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "rounded_total",
+   "fieldtype": "Currency",
+   "label": "Rounded Total",
+   "options": "currency",
+   "read_only": 1,
+   "width": "200px"
+  },
+  {
+   "default": "0",
+   "fieldname": "disable_rounded_total",
+   "fieldtype": "Check",
+   "label": "Disable Rounded Total"
+  },
+  {
+   "fieldname": "base_grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "200px"
+  },
+  {
+   "depends_on": "eval:!doc.disable_rounded_total",
+   "fieldname": "base_rounding_adjustment",
+   "fieldtype": "Currency",
+   "label": "Rounding Adjustment (Company Currency)",
+   "no_copy": 1,
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_rounded_total",
+   "fieldtype": "Currency",
+   "label": "Rounded Total (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "200px"
+  },
+  {
+   "fieldname": "base_in_words",
+   "fieldtype": "Data",
+   "label": "In Words (Company Currency)",
+   "length": 240,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "taxes_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Taxes and Charges",
+   "options": "fa fa-money"
+  },
+  {
+   "fieldname": "tax_category",
+   "fieldtype": "Link",
+   "label": "Tax Category",
+   "options": "Tax Category",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "sales_taxes_and_charges_template",
+   "fieldtype": "Link",
+   "label": "Sales Taxes and Charges Template",
+   "options": "Sales Taxes and Charges Template",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_szmq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_aukj",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "taxes",
+   "fieldtype": "Table",
+   "label": "Sales Taxes and Charges",
+   "options": "Sales Taxes and Charges"
+  },
+  {
+   "fieldname": "section_break_xfag",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "base_total_taxes_and_charges",
+   "fieldtype": "Currency",
+   "label": "Total Taxes and Charges (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ezvy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_taxes_and_charges",
+   "fieldtype": "Currency",
+   "label": "Total Taxes and Charges",
+   "options": "currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_total",
+   "fieldtype": "Currency",
+   "label": "Net Total",
+   "options": "currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_volume",
+   "fieldtype": "Float",
+   "label": "Total Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_total",
+   "fieldtype": "Currency",
+   "label": "Total (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_net_total",
+   "fieldtype": "Currency",
+   "label": "Net Total (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:!doc.is_milestone_based",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "mandatory_depends_on": "eval:!doc.is_milestone_based"
+  },
+  {
+   "default": "0",
+   "fetch_from": "service_type.grants_license",
+   "fieldname": "grants_license",
+   "fieldtype": "Check",
+   "label": "Grants License",
+   "read_only": 1
+  },
+  {
+   "fieldname": "facility_address",
+   "fieldtype": "Text Editor",
+   "label": "Facility Address",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:!doc.grants_license",
+   "depends_on": "eval:doc.grants_license",
+   "fieldname": "license_section",
+   "fieldtype": "Section Break",
+   "label": "License"
+  },
+  {
+   "fieldname": "column_break_bsba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "facility.facility_name",
+   "fetch_if_empty": 1,
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "label": "Project Name",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "description": "Rate at which customer's currency is converted to company's base currency",
+   "fieldname": "conversion_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "precision": "9",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "base_discount_amount",
+   "fieldtype": "Currency",
+   "label": "Additional Discount Amount (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "waste_calculation_section",
+   "fieldtype": "Section Break",
+   "label": "Waste Calculation"
+  },
+  {
+   "fieldname": "calculation_based_on",
+   "fieldtype": "Select",
+   "label": "Calculation Based On",
+   "options": "\nService Configuration\nRegional Service Configuration",
+   "read_only_depends_on": "eval:!doc.ignore_default_configuration"
+  },
+  {
+   "fieldname": "column_break_ltvd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Customer",
+   "fieldname": "quotation_to",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Quotation To",
+   "options": "DocType",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "party_name",
+   "fieldtype": "Dynamic Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Party",
+   "options": "quotation_to",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "facility_section",
+   "fieldtype": "Section Break",
+   "label": "Facility"
+  },
+  {
+   "fieldname": "column_break_azin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billing_address_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Address",
+   "options": "fa fa-bullhorn"
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Link",
+   "label": "Customer Address",
+   "options": "Address",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "customer_address_display",
+   "fieldtype": "Text Editor",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qpog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_configuration",
+   "fieldtype": "Dynamic Link",
+   "label": "Service Configuration",
+   "options": "calculation_based_on",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.apply_regional_configuration",
+   "fieldname": "territory",
+   "fieldtype": "Link",
+   "label": "Territory",
+   "mandatory_depends_on": "eval:doc.apply_regional_configuration",
+   "options": "Address Division",
+   "print_hide": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "ignore_default_configuration",
+   "fieldtype": "Check",
+   "label": "Ignore Default Configuration",
+   "permlevel": 1,
+   "print_hide": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "service_type.apply_regional_configuration",
+   "fieldname": "apply_regional_configuration",
+   "fieldtype": "Check",
+   "label": "Apply Regional Configuration",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "service_type.assigned_address_division_category",
+   "fieldname": "assigned_address_division_category",
+   "fieldtype": "Select",
+   "label": "Assigned Address Division Category",
+   "options": "\nProvince\nCity\nMunicipality\nDistrict",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "facility_specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Facility Specifications"
+  },
+  {
+   "fieldname": "facility_uom",
+   "fieldtype": "Link",
+   "label": "Facility UOM",
+   "options": "Facility UOM",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "facility_measurement",
+   "fieldtype": "Float",
+   "label": "Facility Measurement",
+   "mandatory_depends_on": "eval:!doc.is_composite_uom",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only_depends_on": "eval:doc.is_composite_uom"
+  },
+  {
+   "fieldname": "column_break_bbhf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "facility_uom.must_be_whole_number",
+   "fieldname": "must_be_whole_number",
+   "fieldtype": "Check",
+   "label": "Must be Whole Number",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "facility_uom.is_composite_uom",
+   "fieldname": "is_composite_uom",
+   "fieldtype": "Check",
+   "label": "Is Composite UOM",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_pricing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Service Pricing"
+  },
+  {
+   "depends_on": "eval:doc.is_composite_uom",
+   "fieldname": "facility_uoms",
+   "fieldtype": "Table",
+   "label": "Facility UOMs",
+   "mandatory_depends_on": "eval:doc.is_composite_uom",
+   "options": "Facility Measurement"
+  },
+  {
+   "fieldname": "calculate_service_price",
+   "fieldtype": "Button",
+   "label": "Calculate Service Price"
+  },
+  {
+   "fieldname": "total_converted_volume",
+   "fieldtype": "Float",
+   "label": "Total Converted Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qkrp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "single_collection_mechanism",
+   "fieldtype": "Link",
+   "label": "Single Collection Mechanism",
+   "options": "Collection Mechanism"
+  },
+  {
+   "fieldname": "section_break_aqro",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fetch_from": "facility_uom.default_uom",
+   "fieldname": "default_uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Enable if the service relies strictly on milestone completion. Leave unchecked if it depends on a standard expiry timeline.",
+   "fieldname": "is_milestone_based",
+   "fieldtype": "Check",
+   "label": "Is Milestone-Based Service",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "service_request",
+   "fieldtype": "Link",
+   "label": "Service Request",
+   "options": "Service Request"
+  },
+  {
+   "fieldname": "license_type",
+   "fieldtype": "Link",
+   "label": "License Type",
+   "options": "License Type"
+  },
+  {
+   "depends_on": "eval:doc.license_status==\"Renewal\"",
+   "fieldname": "license_document",
+   "fieldtype": "Attach",
+   "label": "License Document",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "license_display",
+   "fieldtype": "Text Editor",
+   "label": "License",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Conversion Factor",
+   "non_negative": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_facility_measurement",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Net Facility Measurement",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-27 23:53:36.498256",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Service Quotation",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer"
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User"
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor"
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "status,transaction_date,party_name,facility",
+ "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Draft"
+  },
+  {
+   "color": "Orange",
+   "title": "Open"
+  },
+  {
+   "color": "Green",
+   "title": "Accepted"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  },
+  {
+   "color": "Purple",
+   "title": "Sales Order"
+  },
+  {
+   "color": "Gray",
+   "title": "Expired"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "project_name",
+ "track_changes": 1
+}

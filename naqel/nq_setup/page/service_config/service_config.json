@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-05-02 23:18:04.970826",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-05-02 23:18:04.970826",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "service-config",
+ "owner": "Administrator",
+ "page_name": "service-config",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 1,
+ "title": "Service Configuration"
+}

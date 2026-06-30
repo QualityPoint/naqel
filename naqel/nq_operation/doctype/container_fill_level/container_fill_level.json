@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:fill_level",
+ "creation": "2026-04-26 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fill_level",
+  "fill_level_action",
+  "color",
+  "column_break_1",
+  "disabled",
+  "is_default"
+ ],
+ "fields": [
+  {
+   "fieldname": "fill_level",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fill Level",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled",
+   "no_copy": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "Is Default",
+   "no_copy": 1
+  },
+  {
+   "default": "Ignore",
+   "fieldname": "fill_level_action",
+   "fieldtype": "Select",
+   "label": "Fill Level Action",
+   "no_copy": 1,
+   "options": "Ignore\nAlert\nRequest Collection"
+  }
+ ],
+ "grid_page_length": 50,
+ "links": [],
+ "modified": "2026-05-11 19:00:57.456940",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Container Fill Level",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1,
+ "translated_doctype": 1
+}

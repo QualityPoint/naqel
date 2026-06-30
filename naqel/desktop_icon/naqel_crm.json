@@ -1,0 +1,22 @@
+{
+ "app": "naqel",
+ "bg_color": "gray",
+ "creation": "2026-04-17 15:10:26.020503",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "Link",
+ "idx": 0,
+ "label": "Naqel CRM",
+ "link_to": "Naqel CRM",
+ "link_type": "Workspace Sidebar",
+ "logo_url": "/assets/naqel/icons/desktop_icons/solid/crm.svg",
+ "modified": "2026-04-18 17:47:08.710599",
+ "modified_by": "Administrator",
+ "name": "Naqel CRM",
+ "owner": "Administrator",
+ "parent_icon": "Naqel",
+ "restrict_removal": 0,
+ "roles": [],
+ "standard": 1
+}

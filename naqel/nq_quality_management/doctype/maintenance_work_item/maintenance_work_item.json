@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "creation": "2026-04-26 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "work_description",
+  "column_break_1",
+  "time_taken",
+  "performed_by"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "work_description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Work Description",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Performed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "time_taken",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "in_list_view": 1,
+   "label": "Time Taken"
+  }
+ ],
+ "grid_page_length": 50,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-28 16:15:10.822079",
+ "modified_by": "Administrator",
+ "module": "NQ Quality Management",
+ "name": "Maintenance Work Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

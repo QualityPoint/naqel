@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2025-11-29 18:20:02.541500",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "uom",
+  "must_be_whole_number",
+  "is_composite_uom",
+  "column_break_hhjt",
+  "uom_value",
+  "default_uom"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_hhjt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "Facility UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uom_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Value",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "uom.must_be_whole_number",
+   "fieldname": "must_be_whole_number",
+   "fieldtype": "Check",
+   "label": "Must be Whole Number",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "uom.is_composite_uom",
+   "fieldname": "is_composite_uom",
+   "fieldtype": "Check",
+   "label": "Is Composite UOM",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "uom.default_uom",
+   "fieldname": "default_uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-21 14:33:21.727627",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Facility Measurement",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

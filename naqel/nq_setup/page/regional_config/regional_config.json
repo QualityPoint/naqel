@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-05-02 23:16:51.477895",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-05-02 23:16:51.477895",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "regional-config",
+ "owner": "Administrator",
+ "page_name": "regional-config",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 1,
+ "title": "Regional Service Configuration"
+}

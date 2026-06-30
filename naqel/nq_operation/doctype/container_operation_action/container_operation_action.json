@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2025-10-21 18:54:44.080147",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "condition",
+  "column_break_gtri",
+  "container_status_action",
+  "role_to_override_stop_action",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rule Name",
+   "no_copy": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Container Condition",
+   "options": "\nGood\nUnder Inspection\nUnder Maintenance\nOut of Service",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gtri",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Warn",
+   "fieldname": "container_status_action",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Action",
+   "options": "\nStop\nWarn\nIgnore",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.container_status_action==='Stop'",
+   "fieldname": "role_to_override_stop_action",
+   "fieldtype": "Link",
+   "label": "Role Allowed to Override Stop",
+   "options": "Role"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Message Shown to User"
+  }
+ ],
+ "grid_page_length": 50,
+ "links": [],
+ "modified": "2026-04-28 15:04:32.687115",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Container Operation Action",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "translated_doctype": 1
+}

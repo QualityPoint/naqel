@@ -1,0 +1,272 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-26 15:53:15.770132",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "scan_barcode",
+  "container",
+  "container_type",
+  "column_break_1",
+  "surveyed_by",
+  "set_survey_time",
+  "survey_date",
+  "survey_time",
+  "section_break_observation",
+  "survey_type",
+  "column_break_wgpo",
+  "fill_level",
+  "fill_level_action",
+  "section_break_euca",
+  "description",
+  "section_break_evidence",
+  "image",
+  "section_break_source",
+  "schedule_reference",
+  "column_break_source2",
+  "via_customer_portal",
+  "section_break_results",
+  "collection_request",
+  "inspection_request",
+  "cleaning_request"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "CNT-SRV-.YYYY.-",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "scan_barcode",
+   "fieldtype": "Data",
+   "label": "Scan Container QR",
+   "options": "Barcode",
+   "placeholder": "Scan QR code...",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "container",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Container",
+   "options": "Container",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "container.container_type",
+   "fieldname": "container_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Container Type",
+   "options": "Container Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "__user",
+   "fieldname": "surveyed_by",
+   "fieldtype": "Link",
+   "label": "Reported By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "set_survey_time",
+   "fieldtype": "Check",
+   "label": "Edit Survey Date and Time"
+  },
+  {
+   "default": "Today",
+   "fieldname": "survey_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Survey Date",
+   "mandatory_depends_on": "eval:doc.set_survey_time===1",
+   "read_only_depends_on": "eval:doc.set_survey_time===0"
+  },
+  {
+   "default": "Now",
+   "fieldname": "survey_time",
+   "fieldtype": "Time",
+   "label": "Survey Time",
+   "read_only_depends_on": "eval:doc.set_survey_time===0"
+  },
+  {
+   "fieldname": "section_break_observation",
+   "fieldtype": "Section Break",
+   "label": "Observation"
+  },
+  {
+   "fieldname": "survey_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Survey Type",
+   "options": "\nFill Level\nIssue\nCleaning and Disinfection",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.survey_type=='Fill Level'",
+   "fieldname": "fill_level",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fill Level",
+   "mandatory_depends_on": "eval:doc.survey_type=='Fill Level'",
+   "options": "Container Fill Level"
+  },
+  {
+   "depends_on": "eval:doc.survey_type=='Issue' || doc.survey_type=='Cleaning and Disinfection'",
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description",
+   "mandatory_depends_on": "eval:doc.survey_type=='Issue' || doc.survey_type=='Cleaning and Disinfection'"
+  },
+  {
+   "fieldname": "section_break_evidence",
+   "fieldtype": "Section Break",
+   "label": "Photo Evidence"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_source",
+   "fieldtype": "Section Break",
+   "label": "Source"
+  },
+  {
+   "fieldname": "schedule_reference",
+   "fieldtype": "Link",
+   "label": "Schedule Reference",
+   "options": "Container Operation Schedule",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_source2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "via_customer_portal",
+   "fieldtype": "Check",
+   "label": "Via Customer Portal",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_results",
+   "fieldtype": "Section Break",
+   "label": "Operation Request"
+  },
+  {
+   "fieldname": "collection_request",
+   "fieldtype": "Link",
+   "label": "Waste Collection Order",
+   "no_copy": 1,
+   "options": "Operation Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inspection_request",
+   "fieldtype": "Link",
+   "label": "Inspection Order",
+   "no_copy": 1,
+   "options": "Operation Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cleaning_request",
+   "fieldtype": "Link",
+   "label": "Cleaning and Disinfection Order",
+   "no_copy": 1,
+   "options": "Operation Request",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wgpo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.survey_type=='Fill Level'",
+   "fetch_from": "fill_level.fill_level_action",
+   "fieldname": "fill_level_action",
+   "fieldtype": "Select",
+   "label": "Fill Level Action",
+   "options": "\nIgnore\nAlert\nRequest Collection",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_euca",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-17 11:18:26.211217",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Container Survey",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Customer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "container,surveyed_by,survey_date,survey_type",
+ "sort_field": "survey_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

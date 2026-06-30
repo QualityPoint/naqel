@@ -1,0 +1,109 @@
+{
+ "app": "naqel",
+ "creation": "2026-04-28 16:03:02.557937",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "drafting-compass",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "waypoints",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Operational Route",
+   "link_to": "Operational Route",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "calendar-range",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Daily Operational Plan",
+   "link_to": "Daily Operational Plan",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "drafting-compass",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Field Operational Plan",
+   "link_to": "Field Operational Plan",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "truck",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Fleet Management",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Driver",
+   "link_to": "Driver",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Vehicle",
+   "link_to": "Vehicle",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Vehicle Type",
+   "link_to": "Vehicle Type",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "settings",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Operation Settings",
+   "link_to": "Operation Settings",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-22 15:42:33.191750",
+ "modified_by": "Administrator",
+ "module": "NQ Planning",
+ "name": "Naqel Planning",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Naqel Planning"
+}

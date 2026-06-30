@@ -1,32 +1,39 @@
 app_name = "naqel"
 app_title = "Naqel"
-app_publisher = "AssemBahnasy"
-app_description = "A powerful app to operate all the waste management contracts and operation"
-app_email = "assem.bahnasy@qp.sa"
-app_license = "agpl-3.0"
+app_publisher = "QuailtyPoint"
+app_description = "Haywa — Complete Waste Management solution for agreements, contracts, collection and compliance on Frappe."
+app_email = "erp@qp.sa"
+app_license = "gpl-3.0"
+# app_logo_url = "/assets/erpnext/images/logo.svg"
+app_home = "/naqel"
 
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
-# 	{
-# 		"name": "naqel",
-# 		"logo": "/assets/naqel/logo.png",
-# 		"title": "Naqel",
-# 		"route": "/naqel",
-# 		"has_permission": "naqel.api.permission.has_app_permission"
-# 	}
+#     {
+#         "name": "naqel",
+#         "logo": "/assets/naqel/images/logo.svg",
+#                 "title": app_title,
+#                 "route": app_home,
+#                 "has_permission": "naqel.api.permission.has_app_permission"
+#     }
 # ]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/naqel/css/naqel.css"
-# app_include_js = "/assets/naqel/js/naqel.js"
+app_include_css = [
+    "/assets/naqel/css/naqel.css",
+]
+app_include_js = [
+    "address.bundle.js",
+    "naqel.bundle.js",
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/naqel/css/naqel.css"
@@ -56,8 +63,7 @@ app_license = "agpl-3.0"
 # Home Pages
 # ----------
 
-# application home page (will override Website Settings)
-# home_page = "login"
+# home_page = "frontend"
 
 # website user home page (by Role)
 # role_home_page = {
@@ -70,29 +76,31 @@ app_license = "agpl-3.0"
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
 
-# automatically load and sync documents of this doctype from downstream apps
-# importable_doctypes = [doctype_1]
-
 # Jinja
 # ----------
 
 # add methods and filters to jinja environment
-# jinja = {
-# 	"methods": "naqel.utils.jinja_methods",
-# 	"filters": "naqel.utils.jinja_filters"
-# }
+jinja = {
+    "methods": ["naqel.utils.contract.jinja_methods"],
+}
 
 # Installation
 # ------------
 
 # before_install = "naqel.install.before_install"
-# after_install = "naqel.install.after_install"
+after_install = "naqel.install.after_install"
 
 # Uninstallation
 # ------------
 
 # before_uninstall = "naqel.uninstall.before_uninstall"
 # after_uninstall = "naqel.uninstall.after_uninstall"
+
+# Site Migration
+# --------------
+
+# before_migrate = "naqel.install.before_install"
+after_migrate = "naqel.install.after_install"
 
 # Integration Setup
 # ------------------
@@ -110,11 +118,10 @@ app_license = "agpl-3.0"
 # before_app_uninstall = "naqel.utils.before_app_uninstall"
 # after_app_uninstall = "naqel.utils.after_app_uninstall"
 
-# Build
-# ------------------
-# To hook into the build process
-
-# after_build = "naqel.build.after_build"
+# Boot
+# ----
+# Extend the desk bootinfo handed to every client (see naqel/boot.py).
+extend_bootinfo = "naqel.boot.boot_session"
 
 # Desk Notifications
 # ------------------
@@ -134,51 +141,65 @@ app_license = "agpl-3.0"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
+permission_query_conditions = {
+    "Facility": "naqel.nq_crm.doctype.facility.facility.get_permission_query_conditions",
+}
+
+has_permission = {
+    "Facility": "naqel.nq_crm.doctype.facility.facility.has_permission",
+}
+
+# DocType Class
+# ---------------
+# Override standard doctype classes
+
+# override_doctype_class = {
+# 	"ToDo": "custom_app.overrides.CustomToDo"
+# }
+override_doctype_class = {
+    "Company": "naqel.overrides.company.NaqelCompany",
+    "Project": "naqel.overrides.project.NaqelProject",
+}
+# 	"ToDo": "custom_app.overrides.CustomToDo"
+# }
+
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "Address": {
+        "validate": "naqel.overrides.address.validate",
+    },
+    "Payment Entry": {
+        "on_submit": "naqel.overrides.payment_entry.update_contract_payment_status",
+        "on_cancel": "naqel.overrides.payment_entry.update_contract_payment_status",
+    },
+    "Journal Entry": {
+        "on_submit": "naqel.overrides.journal_entry.update_contract_payment_status_from_je",
+        "on_cancel": "naqel.overrides.journal_entry.update_contract_payment_status_from_je",
+    },
+    "Sales Order": {
+        "on_submit": "naqel.overrides.sales_order.update_service_quotation_status",
+        "on_cancel": "naqel.overrides.sales_order.update_service_quotation_status",
+    },
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"naqel.tasks.all"
-# 	],
-# 	"daily": [
-# 		"naqel.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"naqel.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"naqel.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"naqel.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+    "daily": [
+        "naqel.nq_crm.doctype.service_quotation.service_quotation.set_expired_status",
+        "naqel.utils.contract.payment.update_overdue_installments",
+        "naqel.utils.contract.contract_status.update_status_for_contracts",
+    ],
+}
 
 # Testing
 # -------
 
 # before_tests = "naqel.install.before_tests"
-
-# Extend DocType Class
-# ------------------------------
-#
-# Specify custom mixins to extend the standard doctype controller.
-# extend_doctype_class = {
-# 	"Task": "naqel.custom.task.CustomTaskMixin"
-# }
 
 # Overriding Methods
 # ------------------------------
@@ -251,8 +272,4 @@ app_license = "agpl-3.0"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-# Translation
-# ------------
-# List of apps whose translatable strings should be excluded from this app's translations.
-# ignore_translatable_strings_from = []
-
+# website_route_rules = []

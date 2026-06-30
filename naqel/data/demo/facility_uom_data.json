@@ -1,0 +1,66 @@
+[
+    {
+        "uom_name": "Area",
+        "enabled": 1,
+        "must_be_whole_number": 0,
+        "default_uom": "Square Meter",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Persons",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Classes",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Rooms",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Floors",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Animals",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Tanks",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Number of Beds",
+        "enabled": 1,
+        "must_be_whole_number": 1,
+        "default_uom": "Nos",
+        "is_composite_uom": 0
+    },
+    {
+        "uom_name": "Floor Area",
+        "enabled": 1,
+        "must_be_whole_number": 0,
+        "default_uom": "Square Meter",
+        "is_composite_uom": 1,
+        "subsidiary_uom": "Number of Floors"
+    }
+]

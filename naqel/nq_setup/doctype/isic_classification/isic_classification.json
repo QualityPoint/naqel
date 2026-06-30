@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "creation": "2025-10-08 20:48:13.393073",
+ "default_view": "Tree",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "devisions_tab",
+  "category_classification",
+  "category_code",
+  "category_name",
+  "column_break_hjdx",
+  "parent_category",
+  "is_group",
+  "category_ids",
+  "description_section",
+  "description",
+  "section_break_madp",
+  "lft",
+  "old_parent",
+  "column_break_eead",
+  "rgt"
+ ],
+ "fields": [
+  {
+   "fieldname": "devisions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Devisions"
+  },
+  {
+   "fieldname": "category_classification",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category Classification",
+   "options": "\nSection\nDivision\nGroup\nCategory\nActivity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category Code",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "category_name",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Category Name",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hjdx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.category_classification!==\"Section\";",
+   "fieldname": "parent_category",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Category",
+   "mandatory_depends_on": "eval:doc.category_classification!==\"Section\";",
+   "options": "ISIC Classification"
+  },
+  {
+   "default": "0",
+   "description": "Only leaf nodes are allowed in transaction",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group",
+   "read_only": 1
+  },
+  {
+   "depends_on": "//eval:[\"Category\"].includes(doc.category_classification)",
+   "description": "The type of Identification Number that must be included upon creating a facility and contract",
+   "fieldname": "category_ids",
+   "fieldtype": "Table",
+   "label": "Category IDs",
+   "mandatory_depends_on": "//eval:[\"Category\"].includes(doc.category_classification)",
+   "options": "Category IDs"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "section_break_madp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "ISIC Classification"
+  },
+  {
+   "fieldname": "column_break_eead",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-04-18 13:17:45.108906",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "ISIC Classification",
+ "nsm_parent_field": "parent_category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Producer",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Producer Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Translator",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Transporter Manager",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "category_code",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

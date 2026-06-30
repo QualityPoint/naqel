@@ -1,0 +1,6 @@
+<!-- prettier-ignore -->
+{{ _("Address") }}: {{ address_line1 }}{% if address_line2 %}{{", "}}{{ address_line2 }}{% endif -%}
+<br />{{ _("Building No") }}: {% if custom_building_number %}{{ custom_building_number }}{% else %}
+- {% endif -%} <br />{{ _("District") }}: {% if custom_area %}{{ custom_area }}{% else %} - {%
+endif -%} <br />{{ _("City") }}: {{ city }} {{ _("Postal Code") }}: {% if pincode %}{{ pincode }}{%
+else %} - {% endif -%} <br />{{ _("Country") }}: {{ _(country) }}

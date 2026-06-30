@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-02-10 19:04:43.127928",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "waste_type",
+  "percentage",
+  "column_break_ixlv",
+  "waste_item",
+  "waste_item_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "waste_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Waste Type",
+   "options": "Waste Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ixlv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waste_item",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Waste Item",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "waste_item_html",
+   "fieldtype": "HTML",
+   "label": "Waste Item"
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Percentage",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_virtual": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-25 11:11:20.016237",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "WC Facility Waste Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

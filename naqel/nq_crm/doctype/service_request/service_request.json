@@ -1,0 +1,598 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-11-29 18:10:29.376776",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "request_from",
+  "party",
+  "customer_name",
+  "column_break_ffei",
+  "service_type",
+  "facility",
+  "isic_classification",
+  "is_composite_facility",
+  "service_duration_section",
+  "start_date",
+  "end_date",
+  "service_duration",
+  "column_break_cbuu",
+  "is_milestone_based",
+  "duration_uom",
+  "facility_section",
+  "facility_uom",
+  "conversion_factor",
+  "facility_uoms",
+  "facility_measurement",
+  "net_facility_measurement",
+  "default_uom",
+  "column_break_drhx",
+  "must_be_whole_number",
+  "is_composite_uom",
+  "territory",
+  "wastes_section",
+  "waste_types",
+  "license_tab",
+  "license_details_section",
+  "license_type",
+  "license_status",
+  "license_no",
+  "column_break_axoz",
+  "license_document",
+  "license_display",
+  "terms_tab",
+  "terms_and_conditions_section",
+  "tc_name",
+  "terms",
+  "more_info_tab",
+  "service_settings_section",
+  "grants_license",
+  "apply_regional_configuration",
+  "assigned_address_division_category",
+  "column_break_vfyq",
+  "service_configuration",
+  "calculation_based_on",
+  "additional_info_section",
+  "status",
+  "title",
+  "column_break_ismw",
+  "amended_from",
+  "connections_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Facility",
+   "options": "Facility",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ffei",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "Service Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "facility_uom",
+   "fieldtype": "Link",
+   "label": "Facility UOM",
+   "options": "Facility UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_drhx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "facility_uom.is_composite_uom",
+   "fieldname": "is_composite_uom",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Composite UOM",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "facility.facility_name",
+   "fetch_if_empty": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "no_copy": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "facility_measurement",
+   "fieldtype": "Float",
+   "label": "Facility Measurement",
+   "mandatory_depends_on": "eval:!doc.is_composite_uom",
+   "non_negative": 1,
+   "read_only_depends_on": "eval:doc.is_composite_uom"
+  },
+  {
+   "fieldname": "column_break_axoz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "license_details_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, any added annexes will be included in the same quotation and contract using the same facility ID",
+   "fieldname": "is_composite_facility",
+   "fieldtype": "Check",
+   "label": "Is Composite Facility",
+   "no_copy": 1
+  },
+  {
+   "fetch_from": "service_type.license_type",
+   "fieldname": "license_type",
+   "fieldtype": "Link",
+   "label": "License Type",
+   "options": "License Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "license_status",
+   "fieldtype": "Select",
+   "label": "License Status",
+   "mandatory_depends_on": "eval:doc.grants_license",
+   "no_copy": 1,
+   "options": "\nNew Issue\nRenewal"
+  },
+  {
+   "bold": 1,
+   "depends_on": "eval:doc.license_status==\"Renewal\"",
+   "fieldname": "license_no",
+   "fieldtype": "Data",
+   "label": "License No",
+   "mandatory_depends_on": "eval:doc.license_status==\"Renewal\"",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "terms_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Service Terms and Conditions",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Text Editor",
+   "label": "Term Details"
+  },
+  {
+   "bold": 1,
+   "fetch_from": "facility.isic_classification",
+   "fieldname": "isic_classification",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "ISIC Classification",
+   "options": "ISIC Classification",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Service Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nUnder Process\nRequire Clarification\nClarified\nCleared\nQuotation\nRejected\nCancelled",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "service_configuration",
+   "fieldtype": "Link",
+   "label": "Service Configuration",
+   "no_copy": 1,
+   "options": "DocType",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "SRV-REQ-.YYYY.-",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "facility_uom.must_be_whole_number",
+   "fieldname": "must_be_whole_number",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Must be Whole Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "waste_types",
+   "fieldtype": "Table",
+   "label": "Waste Types",
+   "options": "Facility Waste Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "more_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "More Info"
+  },
+  {
+   "depends_on": "eval:doc.apply_regional_configuration",
+   "fetch_from": "facility.territory",
+   "fetch_if_empty": 1,
+   "fieldname": "territory",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Territory",
+   "mandatory_depends_on": "eval:doc.apply_regional_configuration",
+   "options": "Address Division"
+  },
+  {
+   "fieldname": "terms_and_conditions_section",
+   "fieldtype": "Section Break",
+   "label": "Terms and Conditions"
+  },
+  {
+   "fetch_from": "facility_uom.default_uom",
+   "fieldname": "default_uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "default": "Customer",
+   "fieldname": "request_from",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Request From",
+   "options": "DocType",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Party",
+   "options": "request_from",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "wastes_section",
+   "fieldtype": "Section Break",
+   "label": "Wastes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "service_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Service Settings"
+  },
+  {
+   "default": "0",
+   "fetch_from": "service_type.grants_license",
+   "fieldname": "grants_license",
+   "fieldtype": "Check",
+   "label": "Grants License",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "service_type.apply_regional_configuration",
+   "fieldname": "apply_regional_configuration",
+   "fieldtype": "Check",
+   "label": "Apply Regional Configuration",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "service_type.assigned_address_division_category",
+   "fieldname": "assigned_address_division_category",
+   "fieldtype": "Select",
+   "label": "Assigned Address Division Category",
+   "options": "\nProvince\nCity\nMunicipality\nDistrict",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vfyq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_duration_section",
+   "fieldtype": "Section Break",
+   "label": "Service Duration"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:!doc.is_milestone_based",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "mandatory_depends_on": "eval:!doc.is_milestone_based"
+  },
+  {
+   "depends_on": "eval:!doc.is_milestone_based",
+   "fieldname": "service_duration",
+   "fieldtype": "Float",
+   "label": "Service Duration",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cbuu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Enable if the service relies strictly on milestone completion. Leave unchecked if it depends on a standard contract expiry timeline.",
+   "fetch_from": "service_type.is_milestone_based",
+   "fieldname": "is_milestone_based",
+   "fieldtype": "Check",
+   "label": "Is Milestone-Based Service",
+   "read_only": 1
+  },
+  {
+   "default": "Month",
+   "depends_on": "eval:!doc.is_milestone_based",
+   "fieldname": "duration_uom",
+   "fieldtype": "Select",
+   "label": "Duration UOM",
+   "mandatory_depends_on": "eval:!doc.is_milestone_based",
+   "options": "\nDay\nMonth\nYear"
+  },
+  {
+   "fieldname": "facility_section",
+   "fieldtype": "Section Break",
+   "label": "Facility"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "additional_info_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Info"
+  },
+  {
+   "fieldname": "column_break_ismw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "calculation_based_on",
+   "fieldtype": "Select",
+   "label": "Calculation Based On",
+   "options": "\nService Configuration\nRegional Service Configuration",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Conversion Factor",
+   "non_negative": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.grants_license",
+   "fieldname": "license_tab",
+   "fieldtype": "Tab Break",
+   "label": "License"
+  },
+  {
+   "depends_on": "eval:doc.license_status==\"Renewal\"",
+   "fieldname": "license_document",
+   "fieldtype": "Attach",
+   "label": "License Document",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "license_display",
+   "fieldtype": "Text Editor",
+   "label": "License",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_composite_uom",
+   "fieldname": "facility_uoms",
+   "fieldtype": "Table",
+   "label": "Facility UOMs",
+   "mandatory_depends_on": "eval:doc.is_composite_uom",
+   "options": "Facility Measurement"
+  },
+  {
+   "fieldname": "net_facility_measurement",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Net Facility Measurement",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-28 00:21:03.377097",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Service Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor"
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Draft"
+  },
+  {
+   "color": "Blue",
+   "title": "Quotation Request"
+  },
+  {
+   "color": "Yellow",
+   "title": "Under Process"
+  },
+  {
+   "color": "Orange",
+   "title": "Require Clarification"
+  },
+  {
+   "color": "Pink",
+   "title": "Clarified"
+  },
+  {
+   "color": "Purple",
+   "title": "Quotation"
+  },
+  {
+   "color": "Green",
+   "title": "Cleared"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "title",
+ "track_changes": 1
+}

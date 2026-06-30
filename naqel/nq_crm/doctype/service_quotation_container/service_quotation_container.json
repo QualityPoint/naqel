@@ -1,0 +1,383 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-24 13:00:20.346462",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "container_type",
+  "suggested_container_type",
+  "column_break_zkfj",
+  "container_count",
+  "measurements_section",
+  "volume",
+  "volume_unit",
+  "column_break_olje",
+  "total_volume",
+  "section_break_aqhe",
+  "default_volume_unit",
+  "conversion_factor",
+  "column_break_benn",
+  "converted_volume",
+  "total_converted_volume",
+  "section_break_gujh",
+  "tare_weight",
+  "weight_unit",
+  "column_break_tknm",
+  "total_tare_weight",
+  "image_section",
+  "image",
+  "image_view",
+  "generated_waste_section",
+  "generated_rate_per_unit",
+  "facility_generated_waste",
+  "regional_safety_factor",
+  "rating_safety_factor",
+  "column_break_pcav",
+  "waste_type",
+  "waste_type_percentage",
+  "total_generated_waste",
+  "collection_mechanism_section",
+  "collection_mechanism",
+  "requires_container_deployment",
+  "description",
+  "column_break_tgxx",
+  "collection_count",
+  "collection_period_count",
+  "collection_period_uom",
+  "section_break_isbl",
+  "default_container_price",
+  "container_price",
+  "base_default_container_price",
+  "base_container_price",
+  "column_break_sclf",
+  "amount",
+  "base_amount"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "container_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Container Type",
+   "options": "Container Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zkfj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "volume",
+   "fieldtype": "Float",
+   "label": "Standard Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_olje",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tare_weight",
+   "fieldtype": "Float",
+   "label": "Tare Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "image_section",
+   "fieldtype": "Section Break",
+   "label": "Image"
+  },
+  {
+   "fieldname": "image_view",
+   "fieldtype": "Image",
+   "label": "Image View",
+   "options": "image",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "volume_unit",
+   "fieldtype": "Link",
+   "label": "Volume Unit",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight_unit",
+   "fieldtype": "Link",
+   "label": "Weight Unit",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tgxx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_container_deployment",
+   "fieldtype": "Check",
+   "label": "Requires Container Deployment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "measurements_section",
+   "fieldtype": "Section Break",
+   "label": "Measurements"
+  },
+  {
+   "columns": 2,
+   "default": "1",
+   "fieldname": "container_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Container Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "description": "Calculated by multiplying the container count by its standard volume.",
+   "fieldname": "total_volume",
+   "fieldtype": "Float",
+   "label": "Total Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_gujh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_tknm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Calculated by multiplying the container count by its standard tare weight.",
+   "fieldname": "total_tare_weight",
+   "fieldtype": "Float",
+   "label": "Total Tare Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "collection_mechanism_section",
+   "fieldtype": "Section Break",
+   "label": "Collection Mechanism"
+  },
+  {
+   "fieldname": "collection_mechanism",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Collection Mechanism",
+   "options": "Collection Mechanism",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "collection_count",
+   "fieldtype": "Int",
+   "label": "Collection Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "collection_period_count",
+   "fieldtype": "Int",
+   "label": "Collection Period Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Day",
+   "fieldname": "collection_period_uom",
+   "fieldtype": "Select",
+   "label": "Collection Period UOM",
+   "options": "Day\nWeek\nMonth\nYear",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_aqhe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "default_volume_unit",
+   "fieldtype": "Link",
+   "label": "Default Volume Unit",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Conversion Factor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_benn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "converted_volume",
+   "fieldtype": "Float",
+   "label": "Converted Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_converted_volume",
+   "fieldtype": "Float",
+   "label": "Total Converted Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_isbl",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "description": "Calculated rate; preserved so a manual Container Price change can be compared against it.",
+   "fieldname": "default_container_price",
+   "fieldtype": "Currency",
+   "label": "Default Container Price",
+   "no_copy": 1,
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "container_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Container Price",
+   "non_negative": 1,
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "base_default_container_price",
+   "fieldtype": "Currency",
+   "label": "Default Container Price (Company Currency)",
+   "no_copy": 1,
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_container_price",
+   "fieldtype": "Currency",
+   "label": "Container Price (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sclf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_amount",
+   "fieldtype": "Currency",
+   "label": "Amount (Company Currency)",
+   "options": "Company:company:default_currency",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "suggested_container_type",
+   "fieldtype": "Link",
+   "label": "Suggested Container Type",
+   "options": "Container Type",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "generated_waste_section",
+   "fieldtype": "Section Break",
+   "label": "Generated Waste"
+  },
+  {
+   "fieldname": "generated_rate_per_unit",
+   "fieldtype": "Float",
+   "label": "Generated Rate Per Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pcav",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_generated_waste",
+   "fieldtype": "Float",
+   "label": "Total Generated Waste",
+   "read_only": 1
+  },
+  {
+   "fieldname": "waste_type",
+   "fieldtype": "Link",
+   "label": "Waste Type",
+   "options": "Waste Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "facility_generated_waste",
+   "fieldtype": "Float",
+   "label": "Facility Generated Waste",
+   "read_only": 1
+  },
+  {
+   "fieldname": "regional_safety_factor",
+   "fieldtype": "Float",
+   "label": "Regional Safety Factor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rating_safety_factor",
+   "fieldtype": "Float",
+   "label": "Facility Rating Safety Factor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "waste_type_percentage",
+   "fieldtype": "Percent",
+   "label": "Waste Type Percentage",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-20 12:19:22.086543",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Service Quotation Container",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

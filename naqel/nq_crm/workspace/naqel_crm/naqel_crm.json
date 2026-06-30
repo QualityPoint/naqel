@@ -1,0 +1,99 @@
+{
+ "app": "naqel",
+ "charts": [],
+ "content": "[{\"id\":\"iwy2jcv-0w\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Naqel</span>\",\"col\":12}},{\"id\":\"8JEY6xrU3I\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Facility\",\"col\":3}},{\"id\":\"JpaDaEPbKz\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"qZ4EWI0305\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"DwkAlESwZn\",\"type\":\"card\",\"data\":{\"card_name\":\"Utilities\",\"col\":4}}]",
+ "creation": "2025-11-22 12:41:23.872874",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "crm",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Naqel CRM",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Service Type",
+   "link_count": 0,
+   "link_to": "Service Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ISIC Classification",
+   "link_count": 0,
+   "link_to": "ISIC Classification",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Naqel Settings",
+   "link_count": 0,
+   "link_to": "Naqel Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Utilities",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Waste Calculator",
+   "link_count": 0,
+   "link_to": "Waste Calculator",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-04-30 17:03:38.596890",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Naqel CRM",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 17.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Facility",
+   "link_to": "Facility",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Naqel CRM",
+ "type": "Workspace"
+}

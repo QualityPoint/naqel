@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-02 13:04:11.431767",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "title",
+  "service_type",
+  "column_break_wucu",
+  "disabled",
+  "missing_container_price_action",
+  "apply_on_section",
+  "items",
+  "priority_section",
+  "set_priority",
+  "column_break_cdme",
+  "priority",
+  "period_settings_section",
+  "valid_from",
+  "valid_upto",
+  "column_break_prty",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "SPR-.",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wucu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "apply_on_section",
+   "fieldtype": "Section Break",
+   "label": "Apply On"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Service Pricing Rule Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Period Settings"
+  },
+  {
+   "default": "Today",
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From"
+  },
+  {
+   "fieldname": "valid_upto",
+   "fieldtype": "Date",
+   "label": "Valid Up To"
+  },
+  {
+   "fieldname": "column_break_prty",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "default": "Use Matching Base Price",
+   "description": "When no Pricing Rule Container Price matches the requested configuration:<ul><li><b>Service Type Default Fallback:</b> silently uses the default Container Price (is_default) for this service type.</li><li><b>Use Matching Base Price:</b> looks for an exact configuration match in the base Container Price layer.</li><li><b>Warn:</b> tries an exact match first, then falls back to the service type default if not found, and notifies the user in either case.</li><li><b>Stop:</b> blocks the transaction until a matching Pricing Rule Container Price is explicitly created.</li></ul>",
+   "fieldname": "missing_container_price_action",
+   "fieldtype": "Select",
+   "label": "Missing Container Price Action",
+   "no_copy": 1,
+   "options": "Service Type Default Fallback\nUse Matching Base Price\nWarn\nStop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "Service Type",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "priority_section",
+   "fieldtype": "Section Break",
+   "label": "Priority"
+  },
+  {
+   "default": "0",
+   "description": "Enable this to resolve pricing rules conflict.",
+   "fieldname": "set_priority",
+   "fieldtype": "Check",
+   "label": "Set Priority"
+  },
+  {
+   "fieldname": "column_break_cdme",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "set_priority",
+   "description": "Higher the number, lower the priority",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "\n1\n2\n3"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled",
+   "no_copy": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "links": [],
+ "modified": "2026-06-20 02:07:43.693856",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Service Pricing Rule",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-07 13:08:57.730238",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "waste_type",
+  "is_group",
+  "column_break_noxn",
+  "distribution_percentage"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_noxn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "distribution_percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Distribution Percentage"
+  },
+  {
+   "fieldname": "waste_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Waste Type",
+   "options": "Waste Type"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-14 15:05:38.399404",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Facility Waste Category",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

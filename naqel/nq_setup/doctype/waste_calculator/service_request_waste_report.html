@@ -1,0 +1,108 @@
+<div style="font-family: sans-serif; direction: rtl; text-align: right; font-size: 12px; line-height: 1.1;">
+
+<h2 style="color: #1a5c3a; margin: 0 0 2px 0; font-size: 15px;">{{ _("Waste Generation Assessment Report") }}</h2>
+<p style="color: #6b7280; font-size: 11px; margin: 0 0 4px 0;">{{ _("Comprehensive Analysis and Projections") }}</p>
+
+<hr style="border: 0; border-top: 1px solid #d1d5db; margin: 4px 0;">
+
+<h3 style="color: #1a1a1a; margin: 0 0 2px 0; font-size: 13px;">{{ _("Configuration Summary") }}</h3>
+<table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 5px; direction: rtl;">
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold; width: 40%;">{{ _("Service Configuration") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">{{ _(service_config.title) }}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Calculation Method") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;"><strong>{{ _(method) }}</strong></td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Facility Measurement") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">{{ "%.2f"|format(facility_measurement) }} {{ _(service_config.facility_uom or '') }}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Waste Generation Rate") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">{{ "%.4f"|format(generation_rate) }} {{ _(default_volume_unit) }}/{{ _(service_config.facility_uom or 'unit') }}</td>
+    </tr>
+    {% if calc_result.get('selected_threshold') %}
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Threshold Cluster") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">&le; {{ "%.2f"|format(calc_result.selected_threshold) }} {{ _(service_config.facility_uom or 'units') }}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Cluster Volume") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">{{ "%.2f"|format(calc_result.selected_volume) }} {{ _(default_volume_unit) }}</td>
+    </tr>
+    {% endif %}
+</table>
+
+{{ waste_distributions_section }}
+
+<h3 style="color: #1a1a1a; margin: 0 0 2px 0; font-size: 13px;">{{ _("Waste Generation Calculation") }}</h3>
+<table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 5px; direction: rtl;">
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold; width: 40%;">{{ _("Base Facility Waste") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">
+            {{ "%.2f"|format(facility_measurement) }} &times; {{ "%.4f"|format(generation_rate) }} = <strong>{{ "%.2f"|format(calc_result.facility_waste) }} {{ _(default_volume_unit) }}</strong>
+        </td>
+    </tr>
+    {% if rating_safety_factor != 1 or regional_safety_factor != 1 %}
+    {% if regional_safety_factor != 1 %}
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Regional Safety Factor") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">&times; {{ "%.2f"|format(regional_safety_factor) }}</td>
+    </tr>
+    {% endif %}
+    {% if rating_safety_factor != 1 %}
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold;">{{ _("Facility Rating Safety Factor") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">&times; {{ "%.2f"|format(rating_safety_factor) }}</td>
+    </tr>
+    {% endif %}
+    {% endif %}
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; font-weight: bold; font-size: 12px;">{{ _("Total Generated Waste") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; color: #1a5c3a; font-weight: bold; font-size: 12px;">{{ "%.2f"|format(total_generated_waste) }} {{ _(default_volume_unit) }}</td>
+    </tr>
+</table>
+
+{% if apply_service_duration %}
+<h3 style="color: #1a1a1a; margin: 0 0 2px 0; font-size: 13px;">{{ _("Time-Based Projections") }}</h3>
+<table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 5px; direction: rtl;">
+    <tr>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Time Period") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: center;">{{ _("Factor") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Estimated Volume") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Estimated Weight") }}</th>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;"><strong>{{ _("Daily") }}</strong></td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: center; color: #6b7280;">{{ _("Base") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; font-weight: bold; color: #1a5c3a;">{{ "%.2f"|format(total_generated_waste) }} {{ _(default_volume_unit) }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; font-weight: bold;">{% if total_daily_weight %}{{ "%.2f"|format(total_daily_weight) }} {{ _(default_mass_unit) }}{% else %}N/A{% endif %}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb;"><strong>{{ _("Weekly") }}</strong></td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; text-align: center; color: #6b7280;">&times; 7</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; text-align: right; font-weight: bold; color: #1a5c3a;">{{ "%.2f"|format(weekly_waste) }} {{ _(default_volume_unit) }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; text-align: right; font-weight: bold;">{% if weekly_weight %}{{ "%.2f"|format(weekly_weight) }} {{ _(default_mass_unit) }}{% else %}N/A{% endif %}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;"><strong>{{ _("Monthly") }}</strong></td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: center; color: #6b7280;">&times; 30</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; font-weight: bold; color: #1a5c3a;">{{ "%.2f"|format(monthly_waste) }} {{ _(default_volume_unit) }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; font-weight: bold;">{% if monthly_weight %}{{ "%.2f"|format(monthly_weight) }} {{ _(default_mass_unit) }}{% else %}N/A{% endif %}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb;"><strong>{{ _("Annual") }}</strong></td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; text-align: center; color: #6b7280;">&times; 365</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; text-align: right; font-weight: bold; color: #1a5c3a;">{{ "%.2f"|format(yearly_waste) }} {{ _(default_volume_unit) }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; background: #f9fafb; text-align: right; font-weight: bold;">{% if yearly_weight %}{{ "%.2f"|format(yearly_weight) }} {{ _(default_mass_unit) }}{% else %}N/A{% endif %}</td>
+    </tr>
+</table>
+{% endif %}
+
+<p style="font-size: 10px; color: #6b7280; margin: 2px 0 0 0;">
+    <strong>{{ _("Units:") }}</strong> {{ _("Volume:") }} {{ _(default_volume_unit) }} | {{ _("Mass:") }} {{ _(default_mass_unit) }} | {{ _("Density:") }} {{ _(default_density_unit) }}
+</p>
+
+</div>

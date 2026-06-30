@@ -1,1 +1,5 @@
-Naqel
+NQ CRM
+NQ Operation
+NQ Setup
+NQ Planning
+NQ Quality Management

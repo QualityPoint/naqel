@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:waste_name",
+ "creation": "2025-10-09 11:14:56.314488",
+ "default_view": "Tree",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "waste_name",
+  "parent_waste_type",
+  "is_group",
+  "image",
+  "column_break_fmoe",
+  "description",
+  "measurments_section",
+  "waste_standard_density",
+  "waste_density_unit",
+  "column_break_ljhm",
+  "section_break_omx9",
+  "lft",
+  "old_parent",
+  "column_break_eddi",
+  "rgt"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_omx9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Waste Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parent_waste_type",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Waste Type",
+   "options": "Waste Type"
+  },
+  {
+   "fieldname": "column_break_fmoe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "description": "Only leaf nodes are allowed in waste selection",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "measurments_section",
+   "fieldtype": "Section Break",
+   "label": "Measurments"
+  },
+  {
+   "fieldname": "waste_standard_density",
+   "fieldtype": "Float",
+   "label": "Standard Density",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_ljhm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waste_density_unit",
+   "fieldtype": "Link",
+   "label": "Density Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "waste_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Waste Name",
+   "no_copy": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_eddi",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "image",
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-04-20 12:35:32.245470",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Waste Type",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_waste_type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "translated_doctype": 1
+}

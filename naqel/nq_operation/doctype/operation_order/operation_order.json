@@ -1,0 +1,457 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-05-10 13:05:18.454872",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_6rwh",
+  "naming_series",
+  "customer",
+  "customer_name",
+  "column_break_qidx",
+  "company",
+  "order_date",
+  "service_type",
+  "project_details_section",
+  "facility",
+  "project_name",
+  "column_break_bhfn",
+  "project_category",
+  "project_duration_section",
+  "start_date",
+  "end_date",
+  "column_break_xqaj",
+  "duration_uom",
+  "contract_duration",
+  "operation_section",
+  "collection_mechanism",
+  "requires_container_deployment",
+  "container",
+  "container_count",
+  "column_break_rpll",
+  "collection_count",
+  "collection_period_count",
+  "collection_period_uom",
+  "section_break_thew",
+  "notes",
+  "address_and_contact_tab",
+  "territory",
+  "facility_address",
+  "column_break_dhdj",
+  "contact_person",
+  "contact_display",
+  "contact_mobile",
+  "contact_email",
+  "more_info_tab",
+  "references_section",
+  "service_contract",
+  "project",
+  "column_break_tlxg",
+  "sales_order",
+  "additional_info_section",
+  "status",
+  "column_break_sdfc",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_6rwh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Operation Order",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "OPR-ORD-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "order_date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Order Date",
+   "no_copy": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_qidx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "print_hide": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "bold": 1,
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Date",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1,
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "Service Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Facility",
+   "options": "Facility",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "label": "Project Name",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bhfn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Duration-Based",
+   "description": "<ul><li>Duration-Based: Depends on contract expiry.</li><li>Milestone-Based: Depends on milestone completion.</li></ul>",
+   "fieldname": "project_category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Project Category",
+   "options": "\nDuration-Based\nMilestone-Based"
+  },
+  {
+   "fieldname": "operation_section",
+   "fieldtype": "Section Break",
+   "label": "Operation"
+  },
+  {
+   "fieldname": "collection_mechanism",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Collection Mechanism",
+   "options": "Collection Mechanism",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rpll",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_container_deployment",
+   "fieldtype": "Check",
+   "label": "Requires Container Deployment",
+   "permlevel": 1
+  },
+  {
+   "depends_on": "eval:doc.requires_container_deployment",
+   "fieldname": "container",
+   "fieldtype": "Link",
+   "label": "Container",
+   "mandatory_depends_on": "eval:doc.requires_container_deployment",
+   "options": "Container",
+   "print_hide": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "collection_count",
+   "fieldtype": "Int",
+   "label": "Collection Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "collection_period_count",
+   "fieldtype": "Int",
+   "label": "Collection Period Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Day",
+   "fieldname": "collection_period_uom",
+   "fieldtype": "Select",
+   "label": "Collection Period UOM",
+   "options": "Day\nWeek\nMonth\nYear",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_and_contact_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address & Contact"
+  },
+  {
+   "fieldname": "facility_address",
+   "fieldtype": "Text Editor",
+   "label": "Facility Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dhdj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "more_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "More Info"
+  },
+  {
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "service_contract",
+   "fieldtype": "Link",
+   "label": "Service Contract",
+   "options": "Service Contract"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "column_break_tlxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "depends_on": "eval:doc.requires_container_deployment",
+   "fieldname": "container_count",
+   "fieldtype": "Int",
+   "label": "Container Count",
+   "mandatory_depends_on": "eval:doc.requires_container_deployment",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "territory",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Territory",
+   "options": "Address Division"
+  },
+  {
+   "fieldname": "section_break_thew",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes",
+   "no_copy": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "contact_person",
+   "fieldtype": "Link",
+   "label": "Contact Person",
+   "options": "Contact",
+   "print_hide": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "contact_display",
+   "fieldtype": "Small Text",
+   "in_global_search": 1,
+   "label": "Contact",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "contact_person.mobile_no",
+   "fieldname": "contact_mobile",
+   "fieldtype": "Data",
+   "label": "Mobile No",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "contact_person.email_id",
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "additional_info_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Info"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nActive\nInactive\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sdfc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project_duration_section",
+   "fieldtype": "Section Break",
+   "label": "Project Duration"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.contract_category==\"Duration-Based\"",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "mandatory_depends_on": "eval:doc.contract_category==\"Duration-Based\""
+  },
+  {
+   "fieldname": "column_break_xqaj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.contract_category==\"Duration-Based\"",
+   "fieldname": "duration_uom",
+   "fieldtype": "Select",
+   "label": "Duration UOM",
+   "mandatory_depends_on": "eval:doc.contract_category==\"Duration-Based\"",
+   "options": "\nDay\nMonth\nYear"
+  },
+  {
+   "depends_on": "eval:doc.contract_category==\"Duration-Based\"",
+   "fieldname": "contract_duration",
+   "fieldtype": "Float",
+   "label": "Contract Duration",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-21 15:26:47.889582",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Operation Order",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User"
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "order_date,customer,customer_name,company",
+ "show_name_in_global_search": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "project_name",
+ "track_changes": 1,
+ "track_seen": 1
+}

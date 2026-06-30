@@ -1,0 +1,482 @@
+[
+    {
+        "waste_name": "All Waste Types",
+        "is_group": 1,
+        "parent_waste_type": "",
+        "description": "Root category for all waste classification types",
+        "waste_standard_density": null,
+        "waste_density_unit": null
+    },
+    {
+        "waste_name": "Organic Wastes",
+        "is_group": 1,
+        "parent_waste_type": "All Waste Types",
+        "description": "Biodegradable waste materials that can decompose naturally through biological processes",
+        "waste_standard_density": 230,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Food Waste",
+        "is_group": 0,
+        "parent_waste_type": "Organic Wastes",
+        "description": "Kitchen scraps, leftover food, expired food products, and food preparation waste",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Garden Waste",
+        "is_group": 0,
+        "parent_waste_type": "Organic Wastes",
+        "description": "Grass clippings, leaves, branches, prunings, and other yard maintenance waste",
+        "waste_standard_density": 150,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Agricultural Waste",
+        "is_group": 0,
+        "parent_waste_type": "Organic Wastes",
+        "description": "Crop residues, animal manure, plant materials, and farming operation waste",
+        "waste_standard_density": 250,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Wood Waste",
+        "is_group": 0,
+        "parent_waste_type": "Organic Wastes",
+        "description": "Untreated wood, sawdust, wood chips, and timber offcuts",
+        "waste_standard_density": 300,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Paper Waste",
+        "is_group": 0,
+        "parent_waste_type": "Organic Wastes",
+        "description": "Non-recyclable paper, tissues, napkins, paper towels, and contaminated paper products",
+        "waste_standard_density": 80,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Natural Textiles",
+        "is_group": 0,
+        "parent_waste_type": "Organic Wastes",
+        "description": "Cotton, wool, jute, and other natural fiber materials",
+        "waste_standard_density": 200,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Residual Wastes",
+        "is_group": 1,
+        "parent_waste_type": "All Waste Types",
+        "description": "Non-recyclable and non-compostable waste that cannot be recovered or reused",
+        "waste_standard_density": 580,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Mixed Waste",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Contaminated or mixed materials that cannot be separated for recycling",
+        "waste_standard_density": 180,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Sanitary Waste",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Diapers, hygiene products, personal care items, and sanitary materials",
+        "waste_standard_density": 220,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Composite Materials",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Multi-layer packaging, laminated materials, and bonded composites",
+        "waste_standard_density": 160,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Contaminated Paper",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Greasy pizza boxes, soiled paper, and other contaminated paper products",
+        "waste_standard_density": 100,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Broken Ceramics and Pottery",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Broken ceramic items, pottery, and porcelain materials",
+        "waste_standard_density": 1600,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Rubber Products",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Non-recyclable rubber items and rubber waste",
+        "waste_standard_density": 1100,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Ash and Dust",
+        "is_group": 0,
+        "parent_waste_type": "Residual Wastes",
+        "description": "Ash from incineration, dust, and fine particulate waste",
+        "waste_standard_density": 800,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Recyclable Wastes",
+        "is_group": 1,
+        "parent_waste_type": "All Waste Types",
+        "description": "Materials that can be collected, processed, and reused to create new products",
+        "waste_standard_density": 165,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Plastic Waste",
+        "is_group": 1,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Recyclable plastic materials categorized by resin identification codes",
+        "waste_standard_density": 33,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "PET Plastic (Type 1)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "Polyethylene Terephthalate - water bottles, soft drink bottles, food containers",
+        "waste_standard_density": 30,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "HDPE Plastic (Type 2)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "High-Density Polyethylene - milk jugs, detergent bottles, shampoo bottles",
+        "waste_standard_density": 35,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "PVC Plastic (Type 3)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "Polyvinyl Chloride - pipes, window frames, credit cards",
+        "waste_standard_density": 45,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "LDPE Plastic (Type 4)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "Low-Density Polyethylene - plastic bags, squeeze bottles, bread bags",
+        "waste_standard_density": 25,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "PP Plastic (Type 5)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "Polypropylene - yogurt containers, bottle caps, straws",
+        "waste_standard_density": 40,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "PS Plastic (Type 6)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "Polystyrene - foam cups, egg cartons, disposable cutlery",
+        "waste_standard_density": 20,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Other Plastics (Type 7)",
+        "is_group": 0,
+        "parent_waste_type": "Plastic Waste",
+        "description": "Mixed plastics and other resins not fitting categories 1-6",
+        "waste_standard_density": 35,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Metal Waste",
+        "is_group": 1,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Recyclable metallic materials including ferrous and non-ferrous metals",
+        "waste_standard_density": null,
+        "waste_density_unit": null
+    },
+    {
+        "waste_name": "Ferrous Metals",
+        "is_group": 0,
+        "parent_waste_type": "Metal Waste",
+        "description": "Steel, iron, and iron-containing metal scraps and products",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Aluminum",
+        "is_group": 0,
+        "parent_waste_type": "Metal Waste",
+        "description": "Aluminum cans, foil, siding, and aluminum products",
+        "waste_standard_density": 50,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Copper and Brass",
+        "is_group": 0,
+        "parent_waste_type": "Metal Waste",
+        "description": "Copper wiring, pipes, brass fittings, and copper alloys",
+        "waste_standard_density": 500,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Mixed Metals",
+        "is_group": 0,
+        "parent_waste_type": "Metal Waste",
+        "description": "Mixed metallic waste requiring sorting and separation",
+        "waste_standard_density": 300,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Paper and Cardboard",
+        "is_group": 1,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Clean paper and cardboard materials suitable for recycling",
+        "waste_standard_density": null,
+        "waste_density_unit": null
+    },
+    {
+        "waste_name": "Clean Paper",
+        "is_group": 0,
+        "parent_waste_type": "Paper and Cardboard",
+        "description": "Office paper, newspapers, magazines, and clean printed materials",
+        "waste_standard_density": 70,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Cardboard",
+        "is_group": 0,
+        "parent_waste_type": "Paper and Cardboard",
+        "description": "Corrugated boxes, packaging materials, and cardboard products",
+        "waste_standard_density": 50,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Glass Waste",
+        "is_group": 1,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Recyclable glass containers and products",
+        "waste_standard_density": null,
+        "waste_density_unit": null
+    },
+    {
+        "waste_name": "Clear Glass",
+        "is_group": 0,
+        "parent_waste_type": "Glass Waste",
+        "description": "Transparent clear glass bottles and containers",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Green Glass",
+        "is_group": 0,
+        "parent_waste_type": "Glass Waste",
+        "description": "Green-colored glass bottles and containers",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Brown Glass",
+        "is_group": 0,
+        "parent_waste_type": "Glass Waste",
+        "description": "Brown or amber-colored glass bottles and containers",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Mixed Glass",
+        "is_group": 0,
+        "parent_waste_type": "Glass Waste",
+        "description": "Mixed colored glass requiring sorting",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Electronic Waste (E-Waste)",
+        "is_group": 0,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Computers, phones, appliances, electronic equipment, and electronic components",
+        "waste_standard_density": 150,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Textiles and Fabrics",
+        "is_group": 0,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Clean, reusable clothing, fabrics, and textile materials",
+        "waste_standard_density": 200,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Beverage Containers",
+        "is_group": 0,
+        "parent_waste_type": "Recyclable Wastes",
+        "description": "Plastic and metal beverage bottles and cans",
+        "waste_standard_density": 40,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Hazardous Wastes",
+        "is_group": 1,
+        "parent_waste_type": "All Waste Types",
+        "description": "Waste materials requiring special handling due to hazardous properties",
+        "waste_standard_density": null,
+        "waste_density_unit": null
+    },
+    {
+        "waste_name": "Chemical Waste",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Paints, solvents, acids, bases, and other chemical substances",
+        "waste_standard_density": 1000,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Medical Waste",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Needles, syringes, pharmaceuticals, infectious materials, and medical supplies",
+        "waste_standard_density": 200,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Batteries",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Household batteries, rechargeable batteries, and battery cells",
+        "waste_standard_density": 600,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Light Bulbs and Fluorescent Tubes",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Fluorescent lamps, CFL bulbs, and mercury-containing lighting",
+        "waste_standard_density": 100,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Oil and Lubricants",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Used motor oil, lubricants, hydraulic fluids, and petroleum products",
+        "waste_standard_density": 900,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Pesticides and Fertilizers",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Agricultural chemicals, pesticides, herbicides, and fertilizer waste",
+        "waste_standard_density": 800,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Asbestos",
+        "is_group": 0,
+        "parent_waste_type": "Hazardous Wastes",
+        "description": "Asbestos-containing materials requiring specialized disposal",
+        "waste_standard_density": 1500,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Construction and Demolition Waste",
+        "is_group": 1,
+        "parent_waste_type": "All Waste Types",
+        "description": "Waste materials generated from construction, renovation, and demolition activities",
+        "waste_standard_density": 1200,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Concrete and Masonry",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Concrete debris, concrete blocks, cement, and masonry materials",
+        "waste_standard_density": 2000,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Bricks and Tiles",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Broken bricks, ceramic tiles, roof tiles, and similar materials",
+        "waste_standard_density": 1600,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Construction Wood",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Lumber, timber, wooden beams, pallets, and untreated construction wood",
+        "waste_standard_density": 400,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Gypsum and Drywall",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Gypsum board, plasterboard, drywall, and plaster materials",
+        "waste_standard_density": 800,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Metal Scraps",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Structural steel, rebar, metal frames, pipes, and metal construction materials",
+        "waste_standard_density": 500,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Roofing Materials",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Shingles, roofing tiles, asphalt roofing, and roofing membranes",
+        "waste_standard_density": 1000,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Insulation Materials",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Fiberglass insulation, foam board, and other insulation materials",
+        "waste_standard_density": 100,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Asphalt and Paving Materials",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Asphalt pavement, road debris, and paving materials",
+        "waste_standard_density": 2200,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Doors and Windows",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Doors, window frames, glass panes, and associated hardware",
+        "waste_standard_density": 600,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    },
+    {
+        "waste_name": "Mixed C&D Waste",
+        "is_group": 0,
+        "parent_waste_type": "Construction and Demolition Waste",
+        "description": "Mixed construction and demolition debris requiring sorting",
+        "waste_standard_density": 1200,
+        "waste_density_unit": "Kilogram/Cubic Meter"
+    }
+]

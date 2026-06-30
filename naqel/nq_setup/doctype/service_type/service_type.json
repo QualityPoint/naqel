@@ -1,0 +1,260 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:service_name",
+ "creation": "2025-10-23 18:12:04.079703",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "service_name",
+  "is_milestone_based",
+  "column_break_capp",
+  "grants_license",
+  "license_type",
+  "image",
+  "waste_section",
+  "wastes",
+  "quotation_section",
+  "apply_regional_configuration",
+  "assigned_address_division_category",
+  "column_break_aega",
+  "regional_resolution_method",
+  "operation_section",
+  "has_designated_containers",
+  "designated_containers",
+  "column_break_njxv",
+  "settings_tab",
+  "sales_section",
+  "item",
+  "item_name",
+  "column_break_sssa",
+  "terms_section",
+  "default_terms_and_conditions",
+  "column_break_bnrv"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_capp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.has_designated_containers===1",
+   "fieldname": "designated_containers",
+   "fieldtype": "Table",
+   "label": "Designated Containers",
+   "mandatory_depends_on": "eval:doc.has_designated_containers===1",
+   "no_copy": 1,
+   "options": "Waste Category Container"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "operation_section",
+   "fieldtype": "Section Break",
+   "label": "Operation"
+  },
+  {
+   "fieldname": "column_break_njxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.grants_license===1",
+   "fieldname": "license_type",
+   "fieldtype": "Link",
+   "label": "License Type",
+   "mandatory_depends_on": "eval:doc.grants_license===1",
+   "options": "License Type"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_designated_containers",
+   "fieldtype": "Check",
+   "label": "Has Designated Containers",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "service_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the license status must be specified in the Contract, either New Issue or Renewal.",
+   "fieldname": "grants_license",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Grants License",
+   "no_copy": 1
+  },
+  {
+   "description": "Non-stock, no variants, and not a fixed asset Item.",
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "no_copy": 1,
+   "options": "Item",
+   "unique": 1
+  },
+  {
+   "bold": 1,
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Settings"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Terms & Conditions"
+  },
+  {
+   "fieldname": "default_terms_and_conditions",
+   "fieldtype": "Link",
+   "label": "Default Terms and Conditions",
+   "options": "Service Terms and Conditions"
+  },
+  {
+   "fieldname": "column_break_bnrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waste_section",
+   "fieldtype": "Section Break",
+   "label": "Wastes"
+  },
+  {
+   "fieldname": "quotation_section",
+   "fieldtype": "Section Break",
+   "label": "Quotation"
+  },
+  {
+   "default": "0",
+   "fieldname": "apply_regional_configuration",
+   "fieldtype": "Check",
+   "label": "Apply Regional Configuration",
+   "no_copy": 1
+  },
+  {
+   "depends_on": "eval:doc.apply_regional_configuration",
+   "fieldname": "assigned_address_division_category",
+   "fieldtype": "Select",
+   "label": "Assigned Address Division Category",
+   "mandatory_depends_on": "eval:doc.apply_regional_configuration",
+   "no_copy": 1,
+   "options": "\nProvince\nCity\nMunicipality\nDistrict"
+  },
+  {
+   "default": "Address-First (Regional Priority)",
+   "depends_on": "eval:doc.apply_regional_configuration",
+   "description": "How the system auto-picks a configuration when both an ISIC hierarchy and an Address Division hierarchy apply:<ul><li><b>Address-First (Regional Priority):</b> the most specific division wins; ISIC walk breaks ties within a division.</li><li><b>ISIC-First (Configuration Priority):</b> resolve the default Service Configuration by the ISIC walk first, then override only with a Regional Service Configuration that references it.</li><li><b>Most Specific Overall:</b> pick the candidate with the smallest combined (ISIC + division) distance; a regional match wins ties.</li></ul>",
+   "fieldname": "regional_resolution_method",
+   "fieldtype": "Select",
+   "label": "Regional Resolution Method",
+   "mandatory_depends_on": "eval:doc.apply_regional_configuration",
+   "no_copy": 1,
+   "options": "\nAddress-First (Regional Priority)\nISIC-First (Configuration Priority)\nMost Specific Overall"
+  },
+  {
+   "fieldname": "column_break_aega",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_section",
+   "fieldtype": "Section Break",
+   "label": "Sales & Inventory"
+  },
+  {
+   "fieldname": "column_break_sssa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Enable if the service relies strictly on milestone completion. Leave unchecked if it depends on a standard contract expiry timeline.",
+   "fieldname": "is_milestone_based",
+   "fieldtype": "Check",
+   "label": "Is Milestone-Based Service"
+  },
+  {
+   "fieldname": "wastes",
+   "fieldtype": "Table",
+   "label": "Wastes",
+   "options": "Service Waste Type",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "image",
+ "links": [],
+ "modified": "2026-06-27 22:15:26.821580",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Service Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Sales User"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Lead"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Customer"
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "translated_doctype": 1
+}

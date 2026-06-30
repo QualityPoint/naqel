@@ -1,0 +1,376 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-11-08 11:01:39.093303",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "facility_name",
+  "isic_classification",
+  "rating",
+  "column_break_chhd",
+  "is_group",
+  "parent_facility",
+  "image",
+  "section_break_iuve",
+  "column_break_jzkq",
+  "building_no",
+  "street",
+  "secondary_no",
+  "district",
+  "city",
+  "pincode",
+  "column_break_xlsb",
+  "address_html",
+  "address_document",
+  "country",
+  "territory",
+  "location_section",
+  "location",
+  "latitude",
+  "longitude",
+  "references_section",
+  "links",
+  "section_break_xxrh",
+  "lft",
+  "old_parent",
+  "column_break_mwwq",
+  "rgt",
+  "credentials_tab",
+  "credentials_section",
+  "credentials",
+  "settings_tab",
+  "assign_territory",
+  "address_division_category",
+  "column_break_ftwh",
+  "dashboard_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "facility_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Facility Name",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_chhd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "isic_classification",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "ISIC Classification",
+   "options": "ISIC Classification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Geolocation",
+   "label": "Location",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Enable this if the facility has multiple branches with a unified registration number.",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Has Multiple Branches"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Facility"
+  },
+  {
+   "depends_on": "eval:doc.is_group===0",
+   "fieldname": "parent_facility",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Facility",
+   "options": "Facility"
+  },
+  {
+   "fieldname": "section_break_xxrh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mwwq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "FCLT-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "dashboard_tab",
+   "fieldtype": "Tab Break",
+   "label": "Dashboard",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "credentials",
+   "fieldtype": "Table",
+   "label": "Credentials",
+   "no_copy": 1,
+   "options": "Facility Credential"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "hidden": 1,
+   "label": "Address HTML",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "label": "Rating"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_iuve",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_xlsb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "links",
+   "fieldtype": "Table",
+   "label": "Links",
+   "options": "Dynamic Link",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "credentials_tab",
+   "fieldtype": "Tab Break",
+   "label": "Credentials"
+  },
+  {
+   "fieldname": "column_break_jzkq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "address_document",
+   "fieldtype": "Attach",
+   "label": "Address Document",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "building_no",
+   "fieldtype": "Data",
+   "label": "Building No."
+  },
+  {
+   "fieldname": "street",
+   "fieldtype": "Data",
+   "label": "Street",
+   "length": 240,
+   "reqd": 1
+  },
+  {
+   "fieldname": "secondary_no",
+   "fieldtype": "Data",
+   "label": "Secondary No."
+  },
+  {
+   "fieldname": "territory",
+   "fieldtype": "Link",
+   "label": "Territory",
+   "options": "Address Division"
+  },
+  {
+   "fieldname": "settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "assign_territory",
+   "fieldtype": "Check",
+   "label": "Assign Territory",
+   "read_only": 1
+  },
+  {
+   "fieldname": "address_division_category",
+   "fieldtype": "Select",
+   "label": "Address Division Category",
+   "options": "\nProvince\nCity\nMunicipality\nDistrict",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ftwh",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "image",
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-06-27 15:50:52.538682",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Facility",
+ "naming_rule": "By \"Naming Series\" field",
+ "nsm_parent_field": "parent_facility",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lead",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "facility_name"
+}

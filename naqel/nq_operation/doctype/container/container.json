@@ -1,0 +1,327 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-10-09 10:36:39.905354",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "container_id",
+  "container_type",
+  "company",
+  "column_break_ajcb",
+  "manufacturer_id",
+  "manufacture_year",
+  "qr_code_image",
+  "image",
+  "section_break_status",
+  "operational_status",
+  "condition",
+  "column_break_status2",
+  "fill_level",
+  "asset_details_section",
+  "asset",
+  "asset_name",
+  "column_break_ytun",
+  "operation_settings_tab",
+  "allow_container_sharing",
+  "column_break_fcxo",
+  "section_break_etjw",
+  "qr_code",
+  "qr_image_src",
+  "column_break_wrlf",
+  "location_tab",
+  "container_location",
+  "latitude",
+  "longitude"
+ ],
+ "fields": [
+  {
+   "fieldname": "container_id",
+   "fieldtype": "Data",
+   "label": "Container ID",
+   "no_copy": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "container_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Container Type",
+   "options": "Container Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ajcb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturer_id",
+   "fieldtype": "Data",
+   "label": "Manufacturer ID",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "manufacture_year",
+   "fieldtype": "Int",
+   "label": "Manufacture Year",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "section_break_status",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "In Warehouse",
+   "fieldname": "operational_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Operational Status",
+   "no_copy": 1,
+   "options": "\nIn Warehouse\nDeployed\nIn Transit",
+   "read_only": 1
+  },
+  {
+   "default": "Good",
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Condition",
+   "no_copy": 1,
+   "options": "\nGood\nUnder Inspection\nUnder Maintenance\nOut of Service",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_status2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fill_level",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Fill Level",
+   "no_copy": 1,
+   "options": "Container Fill Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "asset_details_section",
+   "fieldtype": "Section Break",
+   "label": "Asset Details"
+  },
+  {
+   "bold": 1,
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset",
+   "no_copy": 1,
+   "options": "Asset",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_tab",
+   "fieldtype": "Tab Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "container_location",
+   "fieldtype": "Geolocation",
+   "label": "Location",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.asset_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ytun",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "QR Code URL",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fcxo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "qr_code",
+   "fieldname": "qr_code_image",
+   "fieldtype": "Image",
+   "is_virtual": 1,
+   "label": "QR Code Image",
+   "no_copy": 1,
+   "options": "qr_image_src",
+   "print_width": "100"
+  },
+  {
+   "fieldname": "qr_image_src",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "is_virtual": 1,
+   "label": "QR Image Source",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "CNT-.",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "operation_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Operation Settings"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, this container will be assigned to multiple leased customers in the vicinity of its deployment",
+   "fieldname": "allow_container_sharing",
+   "fieldtype": "Check",
+   "label": "Allow Sharing By Leased Customers",
+   "no_copy": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "section_break_etjw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wrlf",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "image",
+ "links": [],
+ "modified": "2026-06-22 16:47:23.682633",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Container",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance User"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User"
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Quality Manager"
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "container_type,manufacturer_id,asset_name",
+ "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "container_id",
+ "track_changes": 1
+}

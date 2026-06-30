@@ -1,0 +1,299 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2025-12-09 17:00:52.245576",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "service_type",
+  "is_milestone_based",
+  "apply_regional_configuration",
+  "assigned_address_division_category",
+  "column_break_sxth",
+  "isic_classification",
+  "calculation_based_on",
+  "service_configuration",
+  "configuration_remarks",
+  "section_break_zsxu",
+  "facility_uom",
+  "conversion_factor",
+  "must_be_whole_number",
+  "is_composite_uom",
+  "facility_measurements",
+  "facility_measurement",
+  "net_facility_measurement",
+  "default_uom",
+  "column_break_bnnu",
+  "facility_rating",
+  "territory",
+  "wastes_section",
+  "column_break_kvqd",
+  "wastes",
+  "section_break_jvtv",
+  "allocate_container_for_each_waste_type",
+  "generated_wastes",
+  "waste_calculation_details_section",
+  "waste_calculation"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Service Type",
+   "options": "Service Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_sxth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "isic_classification",
+   "fieldtype": "Link",
+   "label": "ISIC Classification",
+   "options": "ISIC Classification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_configuration",
+   "fieldtype": "Dynamic Link",
+   "label": "Service Configuration",
+   "options": "calculation_based_on"
+  },
+  {
+   "default": "Service Configuration",
+   "fieldname": "calculation_based_on",
+   "fieldtype": "Select",
+   "label": "Calculation Based On",
+   "options": "\nService Configuration\nRegional Service Configuration",
+   "reqd": 1
+  },
+  {
+   "fieldname": "configuration_remarks",
+   "fieldtype": "Text Editor",
+   "label": "Configuration Remarks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_zsxu",
+   "fieldtype": "Section Break",
+   "label": "Facility Specifications"
+  },
+  {
+   "fieldname": "facility_uom",
+   "fieldtype": "Link",
+   "label": "Facility UOM",
+   "options": "Facility UOM",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "must_be_whole_number",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Must be Whole Number",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_composite_uom",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Composite UOM",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_composite_uom===1",
+   "fieldname": "facility_measurements",
+   "fieldtype": "Table",
+   "label": "Facility Measurements",
+   "mandatory_depends_on": "eval:doc.is_composite_uom===1",
+   "options": "WC Facility Measurement"
+  },
+  {
+   "fieldname": "facility_measurement",
+   "fieldtype": "Float",
+   "label": "Facility Measurement",
+   "mandatory_depends_on": "eval:doc.is_composite_uom===0",
+   "non_negative": 1,
+   "read_only_depends_on": "eval:doc.is_composite_uom===1"
+  },
+  {
+   "fieldname": "column_break_bnnu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "facility_rating",
+   "fieldtype": "Rating",
+   "label": "Facility Rating"
+  },
+  {
+   "fieldname": "column_break_kvqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "waste_calculation",
+   "fieldname": "waste_calculation_details_section",
+   "fieldtype": "Section Break",
+   "label": "Waste Calculation Details"
+  },
+  {
+   "fieldname": "waste_calculation",
+   "fieldtype": "Text Editor",
+   "label": "Waste Calculation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_jvtv",
+   "fieldtype": "Section Break",
+   "label": "Waste Generation Calculation"
+  },
+  {
+   "default": "0",
+   "description": "Overrides the chosen configuration's setting for this simulation: when on, one container is suggested per waste type.",
+   "fieldname": "allocate_container_for_each_waste_type",
+   "fieldtype": "Check",
+   "label": "Allocate one container for each waste type"
+  },
+  {
+   "fieldname": "generated_wastes",
+   "fieldtype": "Table",
+   "label": "Generated Wastes",
+   "options": "WC Waste Container"
+  },
+  {
+   "depends_on": "eval:doc.apply_regional_configuration",
+   "fieldname": "territory",
+   "fieldtype": "Link",
+   "label": "Territory",
+   "mandatory_depends_on": "eval:doc.apply_regional_configuration",
+   "options": "Address Division"
+  },
+  {
+   "default": "0",
+   "fetch_from": "service_type.apply_regional_configuration",
+   "fieldname": "apply_regional_configuration",
+   "fieldtype": "Check",
+   "label": "Apply Regional Configuration"
+  },
+  {
+   "fetch_from": "service_type.assigned_address_division_category",
+   "fieldname": "assigned_address_division_category",
+   "fieldtype": "Select",
+   "label": "Assigned Address Division Category",
+   "options": "\nProvince\nCity\nMunicipality\nDistrict",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Enable if the service relies strictly on milestone completion. Leave unchecked if it depends on a standard contract expiry timeline.",
+   "fieldname": "is_milestone_based",
+   "fieldtype": "Check",
+   "label": "Is Milestone-Based Service",
+   "read_only": 1
+  },
+  {
+   "fieldname": "wastes_section",
+   "fieldtype": "Section Break",
+   "label": "Wastes"
+  },
+  {
+   "fieldname": "wastes",
+   "fieldtype": "Table",
+   "label": "Wastes",
+   "options": "WC Facility Waste Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Conversion Factor",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_facility_measurement",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Net Facility Measurement",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "facility_uom.default_uom",
+   "fieldname": "default_uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_virtual": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-27 23:59:52.975418",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Waste Calculator",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Producer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Producer Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Transporter",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Transporter Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

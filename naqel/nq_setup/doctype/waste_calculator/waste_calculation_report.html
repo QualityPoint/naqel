@@ -1,0 +1,276 @@
+<style>
+	{% include "naqel/nq_setup/doctype/waste_calculator/waste_report.css" %}
+</style>
+
+<div class="waste-report-container">
+	
+	<!-- Report Header -->
+	<div class="report-header">
+		<h2>{{ _("Waste Generation Assessment Report") }}</h2>
+		<p>{{ _("Comprehensive Analysis and Projections") }}</p>
+	</div>
+	
+	<!-- Configuration Summary Section -->
+	<div class="config-summary-section">
+		<h3 class="section-title">{{ _("Configuration Summary") }}</h3>
+		<table class="config-table">
+			<tr>
+				<td>{{ _("Service Configuration") }}</td>
+				<td>{{ _(service_config.title) }}</td>
+			</tr>
+			<tr>
+				<td>{{ _("Calculation Method") }}</td>
+				<td>
+					<span class="method-badge">{{ _(method) }}</span>
+				</td>
+			</tr>
+			<tr>
+				<td>{{ _("Facility Measurement") }}</td>
+				<td style="font-weight: 500;">
+					{{ "%.2f"|format(facility_measurement) }} {{ _(service_config.facility_uom or '') }}
+				</td>
+			</tr>
+			<tr>
+				<td>{{ _("Waste Generation Rate") }}</td>
+				<td style="font-weight: 500;">
+					{{ "%.4f"|format(generation_rate) }} {{ _(default_volume_unit) }}/{{ _(service_config.facility_uom or 'unit') }}
+				</td>
+			</tr>
+
+			{% if calc_result.get('selected_threshold') %}
+			<tr style="border-top: 1px solid #dee2e6;">
+				<td>{{ _("Threshold Cluster") }}</td>
+				<td>≤ {{ "%.2f"|format(calc_result.selected_threshold) }} {{ _(service_config.facility_uom or 'units') }}</td>
+			</tr>
+			<tr>
+				<td>{{ _("Cluster Volume") }}</td>
+				<td style="font-weight: 500;">
+					{{ "%.2f"|format(calc_result.selected_volume) }} {{ _(default_volume_unit) }}
+				</td>
+			</tr>
+			{% endif %}
+		</table>
+	</div>
+
+	<!-- Waste Type Distributions Section -->
+	{{ waste_distributions_section }}
+
+	<!-- Calculation Breakdown Section -->
+	<div class="calculation-section">
+		<h3 class="section-title">{{ _("Waste Generation Calculation") }}</h3>
+		
+		<!-- Base Calculation -->
+		<div class="base-calculation-box">
+			<h4>{{ _("Base Facility Waste") }}</h4>
+			<div class="calculation-details">
+				<p>
+					<span class="calculation-label">{{ _("Formula") }}:</span>
+					<code class="calculation-code">
+						{{ _("Facility Measurement") }} × {{ _("Generation Rate") }}
+					</code>
+				</p>
+				<p>
+					<span class="calculation-label">{{ _("Calculation") }}:</span>
+					<code class="calculation-code">
+						{{ "%.2f"|format(facility_measurement) }} × {{ "%.4f"|format(generation_rate) }}
+					</code>
+				</p>
+				<p class="calculation-result">
+					<span class="calculation-label" style="font-weight: 500;">{{ _("Result") }}:</span>
+					<strong class="result-value">
+						{{ "%.2f"|format(calc_result.facility_waste) }} {{ _(default_volume_unit) }}
+					</strong>
+				</p>
+			</div>
+		</div>
+
+		{% if rating_safety_factor != 1 or regional_safety_factor != 1 %}
+		<!-- Safety Factors Section -->
+		<div class="safety-factors-box">
+			<h4>{{ _("Applied Safety Factors") }}</h4>
+			<div>
+				{% if regional_safety_factor != 1 %}
+				<div class="safety-factor-item">
+					<span class="safety-indicator"></span>
+					<strong class="safety-factor-label">{{ _("Regional Safety Factor") }}:</strong>
+					<span class="safety-factor-value">× {{ "%.2f"|format(regional_safety_factor) }}</span>
+				</div>
+				{% endif %}
+
+				{% if rating_safety_factor != 1 %}
+				<div class="safety-factor-item">
+					<span class="safety-indicator"></span>
+					<strong class="safety-factor-label">{{ _("Facility Rating Safety Factor") }}:</strong>
+					<span class="safety-factor-value">× {{ "%.2f"|format(rating_safety_factor) }}</span>
+				</div>
+				{% endif %}
+			</div>
+
+			<!-- Adjusted Calculation -->
+			<div class="adjusted-calculation">
+				<h5>{{ _("Waste After Safety Factor Adjustment") }}</h5>
+				<div class="calculation-details">
+					<p>
+						<span class="calculation-label">{{ _("Calculation") }}:</span>
+						<code class="calculation-code">
+							{{ "%.2f"|format(calc_result.facility_waste) }}{% if rating_safety_factor != 1 %} × {{ "%.2f"|format(rating_safety_factor) }}{% endif %}{% if regional_safety_factor != 1 %} × {{ "%.2f"|format(regional_safety_factor) }}{% endif %}
+						</code>
+					</p>
+					<p class="calculation-result">
+						<span class="calculation-label" style="font-weight: 500;">{{ _("Total Generated Waste") }}:</span>
+						<strong class="result-value">
+							{{ "%.2f"|format(total_generated_waste) }} {{ _(default_volume_unit) }}
+						</strong>
+					</p>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
+		<!-- Total Waste Summary -->
+		<div class="total-waste-box">
+			<h4>{{ _("Total Generated Waste") }}</h4>
+			<div class="total-waste-value">
+				{{ "%.2f"|format(total_generated_waste) }}
+				<span class="total-waste-unit">{{ _(default_volume_unit) }}</span>
+			</div>
+		</div>
+	</div>
+
+	{% if generated_wastes %}
+	<!-- Suggested Containers Section -->
+	<div class="suggested-containers-section">
+		<h3 class="section-title">{{ _("Suggested Containers") }}</h3>
+
+		<p class="section-description">
+			{{ _("Containers recommended for the calculated waste. Where the configuration allocates a container per waste type, each type's share is sized and listed separately.") }}
+		</p>
+
+		<table class="projections-table">
+			<thead>
+				<tr>
+					<th class="text-left">{{ _("Waste Type") }}</th>
+					<th class="text-center">{{ _("Share") }}</th>
+					<th class="text-left">{{ _("Suggested Container") }}</th>
+					<th class="text-right">{{ _("Count") }}</th>
+					<th class="text-right">{{ _("Generated Waste") }}</th>
+					<th class="text-right">{{ _("Total Converted Volume") }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for c in generated_wastes %}
+				<tr>
+					<td class="text-left">{{ _(c.waste_type) if c.waste_type else _("All Waste") }}</td>
+					<td class="text-center">{{ "%.2f"|format(c.waste_type_percentage or 0) }}%</td>
+					<td class="text-left">{{ _(c.container_type) }}</td>
+					<td class="text-right">{{ c.container_count }}</td>
+					<td class="text-right">{{ "%.2f"|format(c.total_generated_waste or 0) }} {{ _(default_volume_unit) }}</td>
+					<td class="text-right">{{ "%.2f"|format(c.total_converted_volume or 0) }} {{ _(c.default_volume_unit or default_volume_unit) }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+
+	{% if apply_service_duration %}
+	<!-- Time-Based Projections Section -->
+	<div class="time-projections-section">
+		<h3 class="section-title">{{ _("Waste Generation Time-Based Projections") }}</h3>
+		
+		<p class="section-description">
+			{{ _("The following estimates represent projected waste generation volumes across different time periods, calculated on a daily basis.") }}
+		</p>
+		
+		<table class="projections-table">
+			<thead>
+				<tr>
+					<th class="text-left">{{ _("Time Period") }}</th>
+					<th class="text-center projection-factor">{{ _("Calculation Factor") }}</th>
+					<th class="text-right projection-volume">{{ _("Estimated Volume") }}</th>
+					<th class="text-right projection-weight">{{ _("Estimated Weight") }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="projection-daily">
+					<td class="time-period">{{ _("Daily Generation") }}</td>
+					<td class="factor">{{ _("Base Calculation") }}</td>
+				<td class="volume">{{ "%.2f"|format(total_generated_waste) }} {{ _(default_volume_unit) }}</td>
+				<td class="weight">
+					{% if total_daily_weight %}
+						{{ "%.2f"|format(total_daily_weight) }} {{ _(default_mass_unit) }}
+						{% else %}
+							{{ _("N/A") }}
+						{% endif %}
+					</td>
+				</tr>
+				<tr class="projection-weekly">
+					<td class="time-period">{{ _("Weekly Generation") }}</td>
+					<td class="factor">{{ _("Daily") }} × 7</td>
+				<td class="volume">{{ "%.2f"|format(weekly_waste) }} {{ _(default_volume_unit) }}</td>
+				<td class="weight">
+					{% if weekly_weight %}
+						{{ "%.2f"|format(weekly_weight) }} {{ _(default_mass_unit) }}
+						{% else %}
+							{{ _("N/A") }}
+						{% endif %}
+					</td>
+				</tr>
+				<tr class="projection-monthly">
+					<td class="time-period">{{ _("Monthly Generation") }}</td>
+					<td class="factor">{{ _("Daily") }} × 30</td>
+				<td class="volume">{{ "%.2f"|format(monthly_waste) }} {{ _(default_volume_unit) }}</td>
+				<td class="weight">
+					{% if monthly_weight %}
+						{{ "%.2f"|format(monthly_weight) }} {{ _(default_mass_unit) }}
+						{% else %}
+							{{ _("N/A") }}
+						{% endif %}
+					</td>
+				</tr>
+				<tr class="projection-yearly">
+					<td class="time-period">{{ _("Annual Generation") }}</td>
+					<td class="factor">{{ _("Daily") }} × 365</td>
+				<td class="volume">{{ "%.2f"|format(yearly_waste) }} {{ _(default_volume_unit) }}</td>
+				<td class="weight">
+					{% if yearly_weight %}
+						{{ "%.2f"|format(yearly_weight) }} {{ _(default_mass_unit) }}
+						{% else %}
+							{{ _("N/A") }}
+						{% endif %}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div class="projections-note">
+			<p>
+				<strong>{{ _("Note:") }}</strong> {{ _("All projections are calculated based on the daily waste generation rate. Actual volumes may vary depending on operational patterns, seasonal factors, and facility-specific conditions.") }}
+				{% if total_daily_weight %}
+					{{ _("Weight calculations are based on waste type densities where available.") }}
+				{% endif %}
+			</p>
+		</div>
+	</div>
+	{% endif %}
+
+	<!-- Measurement Units Footer -->
+	<div class="units-footer">
+		<table class="units-table">
+			<tr>
+				<td class="units-label">{{ _("Standard Measurement Units") }}:</td>
+				<td class="units-values">
+					<span class="unit-item">
+						<strong class="unit-type volume">{{ _("Volume") }}:</strong> {{ _(default_volume_unit) }}
+					</span>
+					<span class="unit-item">
+						<strong class="unit-type mass">{{ _("Mass") }}:</strong> {{ _(default_mass_unit) }}
+					</span>
+					<span class="unit-item">
+						<strong class="unit-type density">{{ _("Density") }}:</strong> {{ _(default_density_unit) }}
+					</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

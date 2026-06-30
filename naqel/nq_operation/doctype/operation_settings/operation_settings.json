@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "creation": "2026-04-26 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_main",
+  "allow_non_contracted_operation_order",
+  "allow_multiple_oos_per_contract",
+  "column_break_1",
+  "validate_oo_against_service_contract",
+  "action_if_contract_properties_mismatch",
+  "role_to_override_stop_action",
+  "sla_section",
+  "sla_configuration"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_main",
+   "fieldtype": "Section Break",
+   "label": "General Settings"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sla_section",
+   "fieldtype": "Section Break",
+   "label": "SLA Configuration"
+  },
+  {
+   "fieldname": "sla_configuration",
+   "fieldtype": "Table",
+   "label": "SLA Matrix",
+   "options": "Operation SLA"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, bypasses the validation requiring an active Service Contract on submitting an Operation Order.",
+   "fieldname": "allow_non_contracted_operation_order",
+   "fieldtype": "Check",
+   "label": "Allow Operation Order submission without Service Contract"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, ensures the Operation Order matches the contract\u2019s category and falls strictly within the active contract duration.",
+   "fieldname": "validate_oo_against_service_contract",
+   "fieldtype": "Check",
+   "label": "Validate Operation Order against Service Contract"
+  },
+  {
+   "depends_on": "eval:doc.validate_oo_against_service_contract",
+   "fieldname": "action_if_contract_properties_mismatch",
+   "fieldtype": "Select",
+   "label": "Action if Contract Properties Mismatch",
+   "options": "Stop\nWarn"
+  },
+  {
+   "depends_on": "eval:doc.validate_oo_against_service_contract",
+   "fieldname": "role_to_override_stop_action",
+   "fieldtype": "Link",
+   "label": "Role allowed to override stop action",
+   "options": "Role"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, multiple Operation Orders can be linked to a single Service Contract. If disabled, the system blocks the creation of duplicate links.",
+   "fieldname": "allow_multiple_oos_per_contract",
+   "fieldtype": "Check",
+   "label": "Allow Multiple Operation Orders per Service Contract"
+  }
+ ],
+ "grid_page_length": 50,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-22 15:32:01.223895",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Operation Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

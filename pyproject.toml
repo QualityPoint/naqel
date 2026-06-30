@@ -9,6 +9,12 @@ readme = "README.md"
 dynamic = ["version"]
 dependencies = [
     # "frappe~=16.0.0" # Installed and managed by bench.
+    "setuptools",
+    "pymupdf>=1.23.0",
+    "pyzbar>=0.1.9",
+    "qrcode>=8.0",
+    "Pillow>=10.0.0",
+    "pytesseract>=0.3.10",
 ]
 
 [build-system]

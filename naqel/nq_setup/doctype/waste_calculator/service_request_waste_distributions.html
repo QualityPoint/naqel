@@ -1,0 +1,44 @@
+<h3 style="color: #1a1a1a; margin: 0 0 2px 0; font-size: 13px;">{{ _("Expected Waste Composition") }}</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 5px; direction: rtl;">
+    <tr>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Waste Type") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: center;">{{ _("Classification") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Distribution %") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Volume") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Standard Density") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Weight") }}</th>
+    </tr>
+    {% for idx, wd in waste_distributions %}
+    <tr style="background: {{ '#f9fafb' if idx % 2 == 0 else '#ffffff' }}; border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">
+            <strong>{{ wd.waste_name }}</strong>
+            {% if wd.description %}<span style="font-size: 9px; color: #6b7280; display: block; line-height: 1;">{{ wd.description }}</span>{% endif %}
+        </td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: center;">{{ _("Group") if wd.is_group else _("Specific") }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right;"><strong>{{ "%.1f"|format(wd.distribution_percentage) }}%</strong></td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; color: #1a5c3a;"><strong>{{ wd.waste_volume_text }}</strong></td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; color: #4b5563;">{{ wd.density_text }}</td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right;"><strong>{{ wd.weight_text }}</strong></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if selected_wastes %}
+<h3 style="color: #1a1a1a; margin: 0 0 2px 0; font-size: 13px;">{{ _("Facility-Specific Waste Selection") }}</h3>
+<table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 5px; direction: rtl;">
+    <tr>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Waste Type") }}</th>
+        <th style="padding: 0px 2px; border: 1px solid #1a5c3a; background: #1a5c3a; color: white; text-align: right;">{{ _("Standard Density") }}</th>
+    </tr>
+    {% for idx, waste_item in selected_wastes %}
+    <tr style="background: {{ '#f9fafb' if idx % 2 == 0 else '#ffffff' }}; border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb;">
+            <strong>{{ waste_item.waste_label }}</strong>
+            {% if waste_item.description %}<span style="font-size: 9px; color: #6b7280; display: block; line-height: 1;">{{ waste_item.description }}</span>{% endif %}
+        </td>
+        <td style="padding: 0px 2px; border: 1px solid #e5e7eb; text-align: right; color: #4b5563;">{{ waste_item.density_text }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}

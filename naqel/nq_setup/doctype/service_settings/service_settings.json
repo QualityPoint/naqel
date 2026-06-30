@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-04-22 00:22:17.100428",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "facility_section",
+  "requires_assigning_territory",
+  "assigned_address_division_category",
+  "allow_fractional_rating",
+  "column_break_jmwp",
+  "requires_facility_credentials",
+  "credentials",
+  "upload_facility_credential",
+  "quotation_section",
+  "default_valid_till",
+  "column_break_onqe",
+  "container_price_section",
+  "missing_container_price_action",
+  "column_break_wici",
+  "pricing_rule_priority"
+ ],
+ "fields": [
+  {
+   "fieldname": "container_price_section",
+   "fieldtype": "Section Break",
+   "label": "Container Price"
+  },
+  {
+   "default": "Factorize",
+   "description": "When no Container Price matches the requested collection configuration:\n<ul><li><b>Factorize:</b> silently scales the default rate proportionally based on the collection configuration ratio.</li><li><b>Warn:</b> tries an exact match first, then factorizes from the default if not found, and notifies the user in either case.</li><li><b>Stop:</b> blocks the transaction until a matching Container Price is explicitly created.</li></ul>",
+   "fieldname": "missing_container_price_action",
+   "fieldtype": "Select",
+   "label": "Missing Container Price Action",
+   "options": "Factorize\nWarn\nStop"
+  },
+  {
+   "fieldname": "column_break_wici",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Controls which scoping dimension takes precedence when resolving Service Pricing Rules. Set each dimension's Priority rank (1 = highest authority): rank 1 \u2192 weight 4, rank 2 \u2192 weight 2, rank 3 \u2192 weight 1. These power-of-two weights guarantee that every combination of dimensions produces a unique score \u2014 eliminating ties without manual configuration. List all three scope types, each with a distinct priority (1, 2, 3).",
+   "fieldname": "pricing_rule_priority",
+   "fieldtype": "Table",
+   "label": "Pricing Rule Priority",
+   "options": "Service Pricing Rule Priority"
+  },
+  {
+   "fieldname": "quotation_section",
+   "fieldtype": "Section Break",
+   "label": "Quotation"
+  },
+  {
+   "default": "30",
+   "fieldname": "default_valid_till",
+   "fieldtype": "Int",
+   "label": " Default Quotation Validity Days "
+  },
+  {
+   "fieldname": "column_break_onqe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "facility_section",
+   "fieldtype": "Section Break",
+   "label": "Facility"
+  },
+  {
+   "fieldname": "column_break_jmwp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the Facility will be required to specify geographic region. Select an Address Division below to filter the territory.",
+   "fieldname": "requires_assigning_territory",
+   "fieldtype": "Check",
+   "label": "Requires Assigning Territory"
+  },
+  {
+   "depends_on": "eval:doc.requires_assigning_territory",
+   "fieldname": "assigned_address_division_category",
+   "fieldtype": "Select",
+   "label": "Assigned Address Division Category",
+   "mandatory_depends_on": "eval:doc.requires_assigning_territory",
+   "options": "\nProvince\nCity\nMunicipality\nDistrict"
+  },
+  {
+   "depends_on": "eval:doc.requires_facility_credentials",
+   "description": "The permitted documents that must be included upon creating a facility and contract",
+   "fieldname": "credentials",
+   "fieldtype": "Table",
+   "label": "Credentials",
+   "options": "Service Facility Credential"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.requires_facility_credentials",
+   "description": "If enabled, facilities must have their credentials uploaded to create their documents",
+   "fieldname": "upload_facility_credential",
+   "fieldtype": "Check",
+   "label": "Requires Facility Credential Upload"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_facility_credentials",
+   "fieldtype": "Check",
+   "label": "Requires Facility Credentials"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the user can rate the facility in fractions, for example: 2.5 Stars",
+   "fieldname": "allow_fractional_rating",
+   "fieldtype": "Check",
+   "label": "Allow Fractional Rating"
+  }
+ ],
+ "grid_page_length": 50,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-25 13:01:21.634856",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Service Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

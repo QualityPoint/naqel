@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "creation": "2026-04-26 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "container_movement",
+  "container",
+  "column_break_1",
+  "arrival_status",
+  "planned_arrival_time",
+  "actual_arrival_time",
+  "section_break_dest",
+  "destination",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "container_movement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Container Relocation",
+   "options": "Container Relocation",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "container_movement.container",
+   "fieldname": "container",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Container",
+   "options": "Container",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "arrival_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Arrival Status",
+   "options": "Pending\nArrived"
+  },
+  {
+   "fieldname": "planned_arrival_time",
+   "fieldtype": "Datetime",
+   "label": "Planned Arrival"
+  },
+  {
+   "fieldname": "actual_arrival_time",
+   "fieldtype": "Datetime",
+   "label": "Actual Arrival",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_dest",
+   "fieldtype": "Section Break",
+   "label": "Destination"
+  },
+  {
+   "fetch_from": "container_movement.to_location",
+   "fieldname": "destination",
+   "fieldtype": "Geolocation",
+   "label": "Destination",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Driver Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-28 13:50:00.016803",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Container Trip Stop",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

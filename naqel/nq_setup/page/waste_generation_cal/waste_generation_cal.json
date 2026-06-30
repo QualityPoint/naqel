@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-04-19 11:59:37.379713",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-04-19 11:59:41.228066",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "waste-generation-cal",
+ "owner": "Administrator",
+ "page_name": "waste-generation-cal",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 1,
+ "title": "Waste Calculator"
+}

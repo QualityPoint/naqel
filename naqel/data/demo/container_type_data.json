@@ -1,0 +1,57 @@
+[
+    {
+        "container_type": "240 Litre",
+        "volume": 240,
+        "volume_unit": "Litre"
+    },
+    {
+        "container_type": "2 yards",
+        "volume": 2,
+        "volume_unit": "Cubic Yard"
+    },
+    {
+        "container_type": "4 yards",
+        "volume": 4,
+        "volume_unit": "Cubic Yard"
+    },
+    {
+        "container_type": "6 yards",
+        "volume": 6,
+        "volume_unit": "Cubic Yard"
+    },
+    {
+        "container_type": "12 yards",
+        "volume": 12,
+        "volume_unit": "Cubic Yard",
+        "removal_mechanisms": [
+            {
+                "collection_mechanism": "Container Pulling"
+            }
+        ]
+    },
+    {
+        "container_type": "20 yards",
+        "volume": 20,
+        "volume_unit": "Cubic Yard",
+        "removal_mechanisms": [
+            {
+                "collection_mechanism": "Container Pulling"
+            }
+        ]
+    },
+    {
+        "container_type": "2 yards press",
+        "volume": 2,
+        "volume_unit": "Cubic Yard"
+    },
+    {
+        "container_type": "10 yards press",
+        "volume": 10,
+        "volume_unit": "Cubic Yard"
+    },
+    {
+        "container_type": "20 yards press",
+        "volume": 20,
+        "volume_unit": "Cubic Yard"
+    }
+]

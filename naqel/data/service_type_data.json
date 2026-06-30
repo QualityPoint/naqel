@@ -1,0 +1,31 @@
+[
+    {
+        "service_name": "Commercial Waste",
+        "grants_license": 1,
+        "license_type": "Commercial Waste License",
+        "wastes": [
+            {
+                "waste_type": "Organic Wastes",
+                "is_group": 1
+            },
+            {
+                "waste_type": "Residual Wastes",
+                "is_group": 1
+            },
+            {
+                "waste_type": "Recyclable Wastes",
+                "is_group": 1
+            }
+        ]
+    },
+    {
+        "service_name": "Construction and Demolition Waste",
+        "grants_license": 0,
+        "wastes": [
+            {
+                "waste_type": "Construction and Demolition Waste",
+                "is_group": 1
+            }
+        ]
+    }
+]

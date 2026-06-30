@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-25 16:24:00.113878",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "max_threshold",
+  "container_type",
+  "count",
+  "column_break_aukn",
+  "container_standard_volume",
+  "container_volume_unit",
+  "section_break_zvmz",
+  "column_break_rkem",
+  "total_volume",
+  "column_break_hxal",
+  "conversion_factor",
+  "container_converted_volume",
+  "total_converted_volume"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_aukn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "container_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Container Type",
+   "options": "Container Type",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "container_type.volume",
+   "fieldname": "container_standard_volume",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Container Standard Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "max_threshold",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Max. Threshold",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "container_type.volume_unit",
+   "fieldname": "container_volume_unit",
+   "fieldtype": "Link",
+   "label": "Container Volume Unit",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Volume Conversion Factor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "container_converted_volume",
+   "fieldtype": "Float",
+   "label": "Container Converted Volume",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_zvmz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rkem",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hxal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_converted_volume",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Converted Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_volume",
+   "fieldtype": "Float",
+   "label": "Total Volume",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-29 13:30:01.187069",
+ "modified_by": "Administrator",
+ "module": "NQ CRM",
+ "name": "Waste Generation Classification",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "hash",
+ "creation": "2026-05-25 12:39:49.981838",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "is_default",
+  "container_section",
+  "container_type",
+  "column_break_jfto",
+  "service_type",
+  "currency",
+  "rental_price_section",
+  "container_rate",
+  "column_break_yzjg",
+  "rental_period_uom",
+  "collection_configuration_section",
+  "collection_count",
+  "column_break_xmob",
+  "collection_period_count",
+  "collection_period_uom"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_jfto",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "container_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Container Type",
+   "options": "Container Type",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rental_price_section",
+   "fieldtype": "Section Break",
+   "label": "Rental Price"
+  },
+  {
+   "fieldname": "column_break_yzjg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Day",
+   "fieldname": "rental_period_uom",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Rental Period UOM",
+   "options": "Day\nWeek\nMonth\nYear",
+   "reqd": 1
+  },
+  {
+   "fieldname": "collection_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Collection Configuration"
+  },
+  {
+   "default": "1",
+   "fieldname": "collection_count",
+   "fieldtype": "Int",
+   "label": "Collection Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_xmob",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "collection_period_count",
+   "fieldtype": "Int",
+   "label": "Collection Period Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Day",
+   "fieldname": "collection_period_uom",
+   "fieldtype": "Select",
+   "label": "Collection Period UOM",
+   "options": "Day\nWeek\nMonth\nYear",
+   "reqd": 1
+  },
+  {
+   "fieldname": "container_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "Baseline rate for this container type and service type. Acts as the factorization anchor when no exact collection configuration match is found.",
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Default",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "Service Type",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "container_rate",
+   "fieldtype": "Currency",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Rate",
+   "non_negative": 1,
+   "options": "currency",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-02 13:09:42.559838",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Container Price",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "container_type",
+ "track_changes": 1
+}

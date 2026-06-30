@@ -1,0 +1,200 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2026-04-19 13:57:26.220876",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "defaults_section",
+        "column_break_nuzv",
+        "allow_different_address_for_sub_facility",
+        "requires_pinned_location",
+        "column_break_pxer",
+        "require_address_document_upload",
+        "map_center_section",
+        "default_map_latitude",
+        "default_map_zoom",
+        "column_break_mapc",
+        "default_map_longitude",
+        "fetch_coordinates_from_country",
+        "document_parsing_section",
+        "enable_document_parsing",
+        "parser_strategy",
+        "ocr_language",
+        "load_extraction_template",
+        "address_extraction_pattern",
+        "column_break_zaih",
+        "sample",
+        "parse_sample",
+        "sample_display",
+        "show_raw_text_in_display"
+    ],
+    "fields": [
+        {
+            "fieldname": "document_parsing_section",
+            "fieldtype": "Section Break",
+            "label": "Document Parsing Settings"
+        },
+        {
+            "default": "0",
+            "description": "When enabled, uploading a national address document (PDF or image) will automatically extract address fields.",
+            "fieldname": "enable_document_parsing",
+            "fieldtype": "Check",
+            "label": "Enable Document Parsing"
+        },
+        {
+            "default": "Auto (by Country)",
+            "depends_on": "enable_document_parsing",
+            "description": "Auto selects the best parser based on the configured Country. Override only if needed.",
+            "fieldname": "parser_strategy",
+            "fieldtype": "Select",
+            "label": "Parser Strategy",
+            "options": "Auto (by Country)\nQR Code + API\nOCR Only\nDisabled"
+        },
+        {
+            "fieldname": "column_break_zaih",
+            "fieldtype": "Column Break"
+        },
+        {
+            "depends_on": "eval:doc.enable_document_parsing && (doc.parser_strategy === 'OCR Only' || doc.parser_strategy === 'Auto (by Country)')",
+            "fieldname": "ocr_language",
+            "fieldtype": "Link",
+            "label": "OCR Language",
+            "options": "Language"
+        },
+        {
+            "depends_on": "eval:doc.enable_document_parsing && doc.parser_strategy === 'OCR Only'",
+            "fieldname": "load_extraction_template",
+            "fieldtype": "Button",
+            "label": "Load Country Template"
+        },
+        {
+            "depends_on": "eval:doc.enable_document_parsing && doc.parser_strategy === 'OCR Only'",
+            "description": "A Python regex with named capture groups to extract address fields from the document text.\n\nEach group name becomes a field key in the extracted result.\n\nExample:\n  (?P\\d+).*?(?P[^\\n]+).*?(?P[^\\n]+)\n\nFor bilingual documents, suffix group names with the language:\n  (?P[^\\n]+)   \u2192 used when OCR Language is Arabic\n  (?P[^\\n]+)   \u2192 used when OCR Language is English\n  (?P\\d+)    \u2192 no suffix, always kept\n\nUse the \u201cLoad Country Template\u201d button to prefill a template for your country.\nLeave empty to show raw extracted text only.",
+            "fieldname": "address_extraction_pattern",
+            "fieldtype": "Code",
+            "label": "Address Extraction Pattern",
+            "options": "Regex"
+        },
+        {
+            "default": "1",
+            "depends_on": "enable_document_parsing",
+            "description": "Show the raw extracted text in the Address Display field alongside structured data.",
+            "fieldname": "show_raw_text_in_display",
+            "fieldtype": "Check",
+            "label": "Show Raw Text in Address Display"
+        },
+        {
+            "fieldname": "map_center_section",
+            "fieldtype": "Section Break",
+            "label": "Default Map Center"
+        },
+        {
+            "description": "Default latitude for the map center when no location is set.",
+            "fieldname": "default_map_latitude",
+            "fieldtype": "Float",
+            "label": "Default Latitude",
+            "precision": "6"
+        },
+        {
+            "default": "6",
+            "description": "Default zoom level for the map (1\u201318).",
+            "fieldname": "default_map_zoom",
+            "fieldtype": "Int",
+            "label": "Default Zoom Level"
+        },
+        {
+            "fieldname": "column_break_mapc",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Default longitude for the map center when no location is set.",
+            "fieldname": "default_map_longitude",
+            "fieldtype": "Float",
+            "label": "Default Longitude",
+            "precision": "6"
+        },
+        {
+            "fieldname": "fetch_coordinates_from_country",
+            "fieldtype": "Button",
+            "label": "Fetch From System Country"
+        },
+        {
+            "fieldname": "column_break_nuzv",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "defaults_section",
+            "fieldtype": "Section Break",
+            "label": "Defaults"
+        },
+        {
+            "depends_on": "enable_document_parsing",
+            "fieldname": "sample",
+            "fieldtype": "Attach",
+            "label": "Sample"
+        },
+        {
+            "depends_on": "eval:doc.enable_document_parsing && doc.sample",
+            "fieldname": "parse_sample",
+            "fieldtype": "Button",
+            "label": "Parse Sample"
+        },
+        {
+            "depends_on": "enable_document_parsing",
+            "fieldname": "sample_display",
+            "fieldtype": "Text Editor",
+            "label": "Sample Details",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "description": "If enabled, facilities must have an address document (PDF or image) uploaded before saving.",
+            "fieldname": "require_address_document_upload",
+            "fieldtype": "Check",
+            "label": "Requires Address Document Upload"
+        },
+        {
+            "default": "0",
+            "description": "If enabled, sub-facilities (those with a parent facility) are allowed to have their own address instead of inheriting from the parent.",
+            "fieldname": "allow_different_address_for_sub_facility",
+            "fieldtype": "Check",
+            "label": "Allow Different Address For Sub-Facility"
+        },
+        {
+            "fieldname": "column_break_pxer",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "requires_pinned_location",
+            "fieldtype": "Check",
+            "label": "Facility Must Have Pinned Location On Map"
+        }
+    ],
+    "grid_page_length": 50,
+    "issingle": 1,
+    "links": [],
+    "modified": "2026-06-20 03:48:59.309987",
+    "modified_by": "Administrator",
+    "module": "NQ Setup",
+    "name": "Address Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "rows_threshold_for_grid_search": 20,
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
+}

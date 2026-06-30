@@ -1,0 +1,150 @@
+{
+    "actions": [],
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "field:id_type",
+    "creation": "2025-11-10 14:28:40.376008",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "id_type",
+        "id_code",
+        "has_expiry_date",
+        "eligible_for_multiple_facility_branches",
+        "validation_code",
+        "parsing_tab",
+        "document_parsing_section",
+        "designated_field_name",
+        "parser_type",
+        "extraction_pattern",
+        "column_break_idpr",
+        "sample",
+        "sample_display"
+    ],
+    "fields": [
+        {
+            "fieldname": "id_type",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "ID Type",
+            "no_copy": 1,
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "id_code",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "ID Code",
+            "no_copy": 1,
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "has_expiry_date",
+            "fieldtype": "Check",
+            "label": "Has Expiry Date"
+        },
+        {
+            "description": "Python code to validate the entered identification number",
+            "fieldname": "validation_code",
+            "fieldtype": "Code",
+            "label": "Validation Code"
+        },
+        {
+            "fieldname": "document_parsing_section",
+            "fieldtype": "Section Break",
+            "label": "Document Parsing"
+        },
+        {
+            "description": "The label containing the ID number that the search engine should look for in the uploaded document",
+            "fieldname": "designated_field_name",
+            "fieldtype": "Data",
+            "label": "Designated Field Name"
+        },
+        {
+            "fieldname": "parser_type",
+            "fieldtype": "Select",
+            "label": "Parser Type",
+            "options": "\nQR\nOCR\nRegex\nManual"
+        },
+        {
+            "depends_on": "eval:doc.parser_type===\"Regex\" || doc.parser_type===\"OCR\"",
+            "description": "Extraction pattern used to extract the ID number from the parsed document text",
+            "fieldname": "extraction_pattern",
+            "fieldtype": "Code",
+            "label": "Extraction Pattern"
+        },
+        {
+            "fieldname": "column_break_idpr",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sample",
+            "fieldtype": "Attach",
+            "label": "Sample",
+            "no_copy": 1
+        },
+        {
+            "fieldname": "sample_display",
+            "fieldtype": "Text Editor",
+            "label": "Sample Details",
+            "no_copy": 1,
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "description": "Check to make this ID eligible for multiple facilities",
+            "fieldname": "eligible_for_multiple_facility_branches",
+            "fieldtype": "Check",
+            "label": "Eligible For Multi-branched Facility"
+        },
+        {
+            "fieldname": "parsing_tab",
+            "fieldtype": "Tab Break",
+            "label": "Document Parsing"
+        }
+    ],
+    "grid_page_length": 50,
+    "links": [],
+    "modified": "2026-04-20 16:17:31.128250",
+    "modified_by": "Administrator",
+    "module": "NQ Setup",
+    "name": "Identification Number",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "read": 1,
+            "role": "Sales Auditor"
+        },
+        {
+            "read": 1,
+            "role": "Sales User"
+        },
+        {
+            "read": 1,
+            "role": "Sales Manager"
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "import": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Master Manager",
+            "write": 1
+        }
+    ],
+    "quick_entry": 1,
+    "row_format": "Dynamic",
+    "rows_threshold_for_grid_search": 20,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "translated_doctype": 1
+}

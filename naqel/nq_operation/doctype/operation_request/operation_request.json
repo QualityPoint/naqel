@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-26 15:42:14.967762",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "request_type",
+  "container_type",
+  "container",
+  "column_break_1",
+  "requested_by",
+  "request_date",
+  "column_break_dnlh",
+  "company",
+  "priority",
+  "status",
+  "section_break_description",
+  "description",
+  "section_break_source",
+  "source_survey",
+  "column_break_source2",
+  "source_schedule",
+  "section_break_waste_collection",
+  "dispatch_type",
+  "operational_route",
+  "section_break_sla",
+  "due_date",
+  "response_time_hours",
+  "column_break_sla2",
+  "fulfilled_at",
+  "sla_status",
+  "is_overdue",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "OPR-REQ-.YYYY.-",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "container",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Container",
+   "options": "Container",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "__user",
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "request_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Request Date",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "\nLow\nMedium\nHigh\nUrgent",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Open\nOverdue\nIn Progress\nCompleted On Time\nCompleted Late\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "container_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Container Type",
+   "options": "Container Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_description",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_source",
+   "fieldtype": "Section Break",
+   "label": "Source"
+  },
+  {
+   "fieldname": "source_survey",
+   "fieldtype": "Link",
+   "label": "Source Survey",
+   "options": "Container Survey",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_source2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_schedule",
+   "fieldtype": "Link",
+   "label": "Source Schedule",
+   "options": "Container Operation Schedule",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.request_type == 'Waste Collection'",
+   "fieldname": "section_break_waste_collection",
+   "fieldtype": "Section Break",
+   "label": "Waste Collection Dispatch"
+  },
+  {
+   "default": "Assign to Route",
+   "depends_on": "eval:doc.request_type == 'Waste Collection'",
+   "fieldname": "dispatch_type",
+   "fieldtype": "Select",
+   "label": "Dispatch Type",
+   "options": "\nAssign to Route\nUrgent Dispatch"
+  },
+  {
+   "fieldname": "section_break_sla",
+   "fieldtype": "Section Break",
+   "label": "SLA"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_time_hours",
+   "fieldtype": "Float",
+   "label": "Response Time (Hours)",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sla2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fulfilled_at",
+   "fieldtype": "Datetime",
+   "label": "Fulfilled At",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sla_status",
+   "fieldtype": "Select",
+   "label": "SLA Status",
+   "no_copy": 1,
+   "options": "\nOn Time\nLate\nOverdue",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_overdue",
+   "fieldtype": "Check",
+   "label": "Is Overdue",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Operation Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.request_type == 'Waste Collection' && doc.dispatch_type == 'Assign to Route'",
+   "fieldname": "operational_route",
+   "fieldtype": "Link",
+   "label": "Operational Route",
+   "options": "Operational Route"
+  },
+  {
+   "fieldname": "column_break_dnlh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Request Type",
+   "options": "\nContainer Relocation\nWaste Collection\nInspection\nMaintenance\nCleaning and Disinfection",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-10 12:40:03.267266",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Operation Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "container,request_type,priority",
+ "show_title_field_in_link": 1,
+ "sort_field": "request_date",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Open"
+  },
+  {
+   "color": "Red",
+   "title": "Overdue"
+  },
+  {
+   "color": "Yellow",
+   "title": "In Progress"
+  },
+  {
+   "color": "Green",
+   "title": "Completed On Time"
+  },
+  {
+   "color": "Purple",
+   "title": "Completed Late"
+  },
+  {
+   "color": "Gray",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "container",
+ "track_changes": 1
+}

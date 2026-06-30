@@ -1,0 +1,1 @@
+(?:Building\s+(?:No\.?|Number)[:\s]*)(?P<building_number>\d+).*?(?:Street[:\s]*)(?P<street>[^\n]+).*?(?:City[:\s]*)(?P<city>[^\n]+)

@@ -1,0 +1,85 @@
+<style>
+	{% include "naqel/nq_setup/doctype/waste_calculator/waste_report.css" %}
+</style>
+
+<!-- Waste Type Distribution Section -->
+<div class="waste-distribution-container">
+	<h3 class="section-title">
+		{{ _("Expected Waste Composition") }}
+	</h3>
+	<p class="section-description">
+		{{ _("The following distribution shows the expected waste type composition based on the service configuration parameters.") }}
+	</p>
+	<div class="table-responsive">
+		<table class="waste-distribution-table">
+			<thead>
+				<tr>
+					<th class="text-left">{{ _("Waste Type") }}</th>
+					<th class="text-center waste-classification">{{ _("Classification") }}</th>
+					<th class="text-right waste-distribution">{{ _("Distribution %") }}</th>
+					<th class="text-right waste-volume">{{ _("Volume") }}</th>
+					<th class="text-right waste-density">{{ _("Standard Density") }}</th>
+					<th class="text-right waste-weight">{{ _("Weight") }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for idx, wd in waste_distributions %}
+				<tr class="{{ 'row-even' if idx % 2 == 0 else 'row-odd' }}">
+					<td class="waste-name-cell">
+						<div class="waste-name">{{ wd.waste_name }}</div>
+						{% if wd.description %}
+						<div class="waste-description">{{ wd.description }}</div>
+						{% endif %}
+					</td>
+					<td class="text-center">
+						<span class="badge badge-{{ 'group' if wd.is_group else 'specific' }}">
+							{{ _("Group") if wd.is_group else _("Specific") }}
+						</span>
+					</td>
+					<td class="text-right">
+						<span class="distribution-value">{{ "%.1f"|format(wd.distribution_percentage) }}%</span>
+					</td>
+					<td class="text-right volume-value">{{ wd.waste_volume_text }}</td>
+					<td class="text-right density-value">{{ wd.density_text }}</td>
+					<td class="text-right weight-value">{{ wd.weight_text }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% if selected_wastes %}
+<!-- Selected Waste Types Section -->
+<div class="selected-waste-container">
+	<h3 class="section-title">
+		{{ _("Facility-Specific Waste Selection") }}
+	</h3>
+	<p class="section-description">
+		{{ _("The following waste types have been specifically selected for this facility based on operational requirements.") }}
+	</p>
+	<div class="table-responsive">
+		<table class="selected-waste-table">
+			<thead>
+				<tr>
+					<th class="text-left">{{ _("Waste Type") }}</th>
+					<th class="text-right waste-density">{{ _("Standard Density") }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for idx, waste_item in selected_wastes %}
+				<tr class="{{ 'row-even-alt' if idx % 2 == 0 else 'row-odd-alt' }}">
+					<td class="waste-name-cell">
+						<div class="waste-name">{{ waste_item.waste_label }}</div>
+						{% if waste_item.description %}
+						<div class="waste-description">{{ waste_item.description }}</div>
+						{% endif %}
+					</td>
+					<td class="text-right density-value">{{ waste_item.density_text }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endif %}

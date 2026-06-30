@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-22 15:46:57.548704",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "configuration_tab",
+  "default_measurements_section",
+  "default_volume_unit",
+  "default_mass_unit",
+  "default_length_unit",
+  "column_break_nqna",
+  "default_density_unit",
+  "default_area_unit",
+  "demo_data_section",
+  "generate_demo_data",
+  "column_break_ehis",
+  "clear_demo_data",
+  "assets_section",
+  "multiple_containers_against_single_asset",
+  "column_break_ylvf"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_nqna",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_volume_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Volume Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_density_unit",
+   "fieldtype": "Link",
+   "label": "Default Density Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_mass_unit",
+   "fieldtype": "Link",
+   "label": "Default Mass Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_measurements_section",
+   "fieldtype": "Section Break",
+   "label": "Default Measurements"
+  },
+  {
+   "fieldname": "default_area_unit",
+   "fieldtype": "Link",
+   "label": "Default Area Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "configuration_tab",
+   "fieldtype": "Tab Break",
+   "label": "Configuration"
+  },
+  {
+   "default": "0",
+   "description": "Enabling this will allow the creation of multiple containers against a single asset, but it will check the quantity of that asset",
+   "fieldname": "multiple_containers_against_single_asset",
+   "fieldtype": "Check",
+   "label": "Allow multiple containers against single asset record"
+  },
+  {
+   "fieldname": "column_break_ylvf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assets_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Assets"
+  },
+  {
+   "fieldname": "default_length_unit",
+   "fieldtype": "Link",
+   "label": "Default Length Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ehis",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "clear_demo_data",
+   "fieldtype": "Button",
+   "label": "Clear Demo Data"
+  },
+  {
+   "fieldname": "generate_demo_data",
+   "fieldtype": "Button",
+   "label": "Generate Demo Data"
+  },
+  {
+   "fieldname": "demo_data_section",
+   "fieldtype": "Section Break",
+   "label": "Demo Data"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-30 17:35:06.826000",
+ "modified_by": "Administrator",
+ "module": "NQ Setup",
+ "name": "Naqel Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

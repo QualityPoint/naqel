@@ -1,0 +1,44 @@
+[
+    {
+        "removal_mechanism_name": "Collecting from Source",
+        "mechanism_type": "Collect from Source",
+        "description": "The waste producer collects waste into bags or private containers at their premises. The company truck passes to collect them.",
+        "round_trip_rate": 50.00,
+        "round_trip_rate_period": "Daily",
+        "verify_location": 1,
+        "check_container_location_proximity": 0
+    },
+    {
+        "removal_mechanism_name": "Container Deployment",
+        "mechanism_type": "Container Deployment",
+        "description": "The company deploys its own container at the facility site. Discharge method depends on the container type selected.",
+        "round_trip_rate": 75.00,
+        "round_trip_rate_period": "Daily",
+        "extra_trip_rate": 90.00,
+        "extra_trip_rate_period": "Daily",
+        "verify_location": 1,
+        "check_container_location_proximity": 1,
+        "permissible_container_location_remoteness": 500,
+        "diameter_unit": "Meter"
+    },
+    {
+        "removal_mechanism_name": "Collection Room",
+        "mechanism_type": "Collection Room",
+        "description": "The customer dedicates a room or enclosed chamber at their premises. The company sends a truck to discharge the waste from inside.",
+        "round_trip_rate": 60.00,
+        "round_trip_rate_period": "Daily",
+        "verify_location": 0,
+        "check_container_location_proximity": 0
+    },
+    {
+        "removal_mechanism_name": "Waste Compress",
+        "mechanism_type": "Waste Compress",
+        "description": "An on-site hydraulic compactor machine compresses waste into a container. The company periodically swaps or discharges the compacted container.",
+        "round_trip_rate": 100.00,
+        "round_trip_rate_period": "Weekly",
+        "extra_trip_rate": 120.00,
+        "extra_trip_rate_period": "Weekly",
+        "verify_location": 0,
+        "check_container_location_proximity": 0
+    }
+]

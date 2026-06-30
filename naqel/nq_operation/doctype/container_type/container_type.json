@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:container_type",
+ "creation": "2025-10-21 17:41:02.578087",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "container_type",
+  "column_break_hnfc",
+  "image",
+  "defaults_section",
+  "volume",
+  "volume_unit",
+  "column_break_imre",
+  "tare_weight",
+  "weight_unit",
+  "removal_section",
+  "vehicle_type",
+  "column_break_dqdd",
+  "warehouse_section",
+  "warehouse",
+  "column_break_pjxz"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_hnfc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_imre",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Standard Measurements"
+  },
+  {
+   "fieldname": "column_break_dqdd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "container_type",
+   "fieldtype": "Data",
+   "label": "Container Type",
+   "no_copy": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "warehouse_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouse"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Default Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_pjxz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "removal_section",
+   "fieldtype": "Section Break",
+   "label": "Removal Mechanism"
+  },
+  {
+   "fieldname": "volume",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Volume",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "description": "The weight of the empty container before collection. Used to calculate net waste weight.",
+   "fieldname": "tare_weight",
+   "fieldtype": "Float",
+   "label": "Tare Weight",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "volume_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Volume Unit",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight_unit",
+   "fieldtype": "Link",
+   "label": "Weight Unit",
+   "options": "UOM"
+  },
+  {
+   "description": "The vehicle type required to service containers of this type (determined by container size and lift mechanism)",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Required Vehicle Type",
+   "options": "Vehicle Type"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "image",
+ "links": [],
+ "modified": "2026-06-20 09:15:31.360494",
+ "modified_by": "Administrator",
+ "module": "NQ Operation",
+ "name": "Container Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "translated_doctype": 1
+}
