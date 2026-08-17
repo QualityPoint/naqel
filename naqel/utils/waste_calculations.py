@@ -1,4 +1,4 @@
-# Copyright (c) 2025, QuailtyPoint and contributors
+# Copyright (c) 2025, QualityPoint and contributors
 # For license information, please see license.txt
 
 """

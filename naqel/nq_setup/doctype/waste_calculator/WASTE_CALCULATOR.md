@@ -860,8 +860,8 @@ Before updates, backup:
 
 ## License
 
-Copyright (c) 2025, QuailtyPoint
-Licensed under MIT License
+Copyright (c) 2025, QualityPoint
+Licensed under the GNU General Public License v3
 
 ---
 

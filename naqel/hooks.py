@@ -1,6 +1,6 @@
 app_name = "naqel"
 app_title = "Naqel"
-app_publisher = "QuailtyPoint"
+app_publisher = "QualityPoint"
 app_description = "Naqel — Complete Waste Management solution for agreements, contracts, collection and compliance on Frappe."
 app_email = "erp@qp.sa"
 app_license = "gpl-3.0"

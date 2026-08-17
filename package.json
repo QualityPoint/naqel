@@ -8,5 +8,7 @@
   "dependencies": {
     "echarts": "^6.0.0",
     "leaflet": "^1.9.4"
-  }
+  },
+  "author": "QualityPoint",
+  "license": "GPL-3.0-or-later"
 }

@@ -1,4 +1,4 @@
-# Copyright (c) 2025, QuailtyPoint and Contributors
+# Copyright (c) 2025, QualityPoint and contributors
 # See license_type.txt
 
 # import frappe

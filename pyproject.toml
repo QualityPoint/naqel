@@ -1,11 +1,12 @@
 [project]
 name = "naqel"
 authors = [
-    { name = "AssemBahnasy", email = "assem.bahnasy@qp.sa"}
+    { name = "QualityPoint", email = "erp@qp.sa"}
 ]
 description = "A powerful app to operate all the waste management contracts and operation"
 requires-python = ">=3.14"
 readme = "README.md"
+license = { file = "license.txt" }
 dynamic = ["version"]
 dependencies = [
     # "frappe~=16.0.0" # Installed and managed by bench.
